@@ -16,6 +16,7 @@
 ####################################################################################################
 # @author       David Kirwan
 # @description  Ruby Script for creating a html file to access that directory structure.
+# @usage	makeIndex.rb <path>
 #
 # @date         21-03-2012
 # @version	0.1
@@ -24,8 +25,7 @@
 require 'find'
 
 # Variables
-#path = '.'
-imgPath = 'http://yoursite.com/'
+imgPath = '/'
 
 
 def document_tree(directory, imgPath)
@@ -69,12 +69,6 @@ def document_tree(directory, imgPath)
   html.close
 end
 
-
-
 ####  Script
-Dir['**/*'].each do |j|
-  if File.directory? j
-      document_tree(j, imgPath)
-  end
-end
 
+if ARGV.length == 1 then document_tree(ARGV[0], imgPath); end
