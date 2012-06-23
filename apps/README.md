@@ -1,4 +1,5 @@
-== apps README ==
+## apps README
 
+- bash-search-script/ Contains the code for a simple bash "useful url and command database" search script.
 - website/ Contains the code powering the www.dkirwan.ie website.
 - directory2html/ Contains a ruby script which creates html files containing the directory structure of a filesystem.
