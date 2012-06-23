@@ -8,7 +8,7 @@
 # @date 	10-01-2012
 ####################################################
 
-DATA=/home/david/Work/Resources/
+DATA=files
 search=$1
 
 if [ "$search" == "" ]
