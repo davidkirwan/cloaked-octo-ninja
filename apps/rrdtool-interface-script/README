@@ -1,0 +1,33 @@
+Requirements: Should be on most linux machines 
+- perl
+- rrdtool
+- ifconfig 
+
+### Create the RRDTool Database
+
+Run the createDatabase.sh script to generate the rrdtool database
+
+
+### Update the Database
+
+Run the updateDatabase.sh to begin capturing data and populating the database.
+
+
+### Generate the graph
+
+Generate the graph by running the createGraph.sh
+
+
+### View the results
+
+View the results on the index.html web page.
+
+### Copying
+
+Consider all this code released under the GNU Public Licence, do with it what you will
+providing you adhere to the terms of the licence.
+
+
+Hope this is useful to some folks out there :)
+
+-David.
