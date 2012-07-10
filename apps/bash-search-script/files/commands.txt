@@ -22,7 +22,7 @@
 @cron @crontab # crontab -r # Remove your crontab file.;
 @shortcut @application # gnome-desktop-item-edit ~/Desktop/ --create-new # Dialogbox for generating desktop shortcuts;
 @git @log # git log # Prints out the information about who submitted the last revision;
-@git @clone # git clone https://projects.lab.tssg.org/git/3mt # Clones the git repository to the current directory;
+@git @clone # git clone https://path.to.git # Clones the git repository to the current directory;
 @grep # grep -r "<searchpattern>" * # Recursivly searches for <searchpattern> in files in the current directory;
 @git @push # git push origin # Pushes your branch back upto the root;
 @git @branch # git branch branchname # Creates a new branch;
