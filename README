@@ -2,11 +2,16 @@
 
 Main repository for all my projects.
 =======
-├── apps
-│   ├── bash-search-script
-│   ├── directory2html
-│   ├── rrdtool-interface-script
-│   └── website
-└── docs
-    └── linux-link-bonding
+.
+|-- apps
+|   |-- bash-search-script
+|   |-- directory2html
+|   |-- README
+|   |-- rrdtool-interface-script
+|   |-- usefuldb-gem
+|   `-- website
+|-- docs
+|   |-- linux-link-bonding
+|   `-- README
+`-- README
 
