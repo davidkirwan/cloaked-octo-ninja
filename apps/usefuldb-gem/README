@@ -1,0 +1,4 @@
+## First install the usfuldb gem:
+
+	gem build usefuldb.gemspec
+	sudo gem install usfuldb-x.x.x.gem

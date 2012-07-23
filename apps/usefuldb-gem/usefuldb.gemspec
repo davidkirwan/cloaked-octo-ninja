@@ -1,0 +1,23 @@
+require 'rake'
+
+Gem::Specification.new do |s|
+  s.name        = 'usefuldb'
+  s.version     = '0.0.0'
+  s.date        = '2012-07-24'
+  s.summary     = "A simple commands and URLs database for storage of useful information"
+  s.description = "usefuldb is a simple database which is designed to store useful commands and URLs"
+  s.authors     = ["David Kirwan"]
+  s.email       = ['00346128@mail.wit.ie']
+  
+  s.files       = FileList['lib/**/*.rb',
+                      'bin/*',
+                      '[A-Z]*',
+                      'resources/*',
+                      'test/**/*'].to_a
+  s.homepage    = 'http://rubygems.org/gems/usefuldb'
+  s.required_ruby_version = '>= 1.8.7'
+  s.post_install_message = <<-INSTALL
+
+INSTALL
+
+end

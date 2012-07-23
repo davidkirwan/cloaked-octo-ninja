@@ -3,11 +3,22 @@
 Main repository for all my projects.
 =======
 Main repository
+<<<<<<< HEAD
+|-- apps
+|   |-- bash-search-script
+|   |-- directory2html
+|   |-- rrdtool-interface-script
+|   |-- usefuldb-gem
+|   `-- website
+`-- docs
+    `-- linux-linked-bonding
+=======
 ├── apps
 │   ├── bash-search-script
 │   ├── directory2html
 │   ├── rrdtool-interface-script
 │   └── website
 └── docs
-    └── linux-linked-bonding
+    └── linux-link-bonding
 
+>>>>>>> 28d5de6f4c4bf347fbbab7b93dfff0432ffaad4c
