@@ -1,4 +1,7 @@
-## First install the usfuldb gem:
+## Readme
 
-	gem build usefuldb.gemspec
-	sudo gem install usfuldb-x.x.x.gem
+
+Install
+: rake test
+: gem build usefuldb.gemspec
+: sudo gem install usfuldb-x.x.x.gem
