@@ -37,6 +37,16 @@ class UsefulUtils
     def add(hash)
       if @data.include?(hash) then raise EntryInDB, "Entry already in the DB"; else @data << hash; end    
     end
-  
+
+    def remove(key)
+      if @data.count == 0
+        raise EmptyDB, "You cannot call the remove function on an empty Database!"
+      elsif @data.count < key || key < 0
+        raise KeyOutOfBounds, "Key does not exist in the DB"
+      else
+        @data.delete_at(key) 
+      end
+    end
+
   end
 end

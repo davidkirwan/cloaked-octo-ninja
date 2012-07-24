@@ -6,3 +6,6 @@ end
 
 class EmptyDB < Exception
 end
+
+class KeyOutOfBounds < Exception
+end

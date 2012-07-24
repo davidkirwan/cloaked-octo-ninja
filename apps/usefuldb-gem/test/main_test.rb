@@ -75,7 +75,7 @@ class UsefulDBTest < Test::Unit::TestCase
       assert(false, red(e.message))
     end
         
-    puts green("test_add done")
+    puts green("test_add passed")
   end
   
   
@@ -106,8 +106,58 @@ class UsefulDBTest < Test::Unit::TestCase
     rescue EmptyDB => e
       assert(false, red(e.message))
     end
-    
-    puts green("test_save done")
+
+
+    begin
+      UsefulUtils.remove(2)
+    rescue KeyOutOfBounds => e
+      assert(false, red(e.message))
+    rescue EmptyDB => e
+      assert(false, red(e.message))
+    end
+
+    UsefulUtils.dbSave
+
+    puts green("test_save passed")
   end
+
+
+  def test_remove()
+    puts yellow("\n## Executing test_remove")
+
+    entry = {"tag" => ["test"], "value" => "testvalue"}
+    entry2 = {"tag" => ["test2"], "value" => "testvalue2"}
+    puts "Creating another element" + entry.inspect + " and " + entry2.inspect
+    
+    puts "Test to check adding new element to the DB succeeds"
+    begin
+      UsefulUtils.add(entry)
+      UsefulUtils.add(entry2)
+    rescue EntryInDB => e
+      assert(false, red(e.message))
+    end
+    
+    puts "Saving the DB"
+    UsefulUtils.dbSave
+    UsefulUtils.dbLoad
+
+    puts "Removing those 2 entries from the database"
+    begin
+      UsefulUtils.remove(2)
+      puts blue(assert_equal(3, UsefulUtils.count))
+      UsefulUtils.remove(2)
+      puts blue(assert_equal(2, UsefulUtils.count))
+    rescue KeyOutOfBounds => e
+      assert(false, red(e.message))
+    rescue EmptyDB => e
+      assert(false, red(e.message))
+    end
+
+    puts "Saving the DB"
+    UsefulUtils.dbSave
+    
+    puts green("test_remove passed")
+  end
+
 
 end

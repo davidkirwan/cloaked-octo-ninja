@@ -1,7 +1,13 @@
 ## Readme
 
+### Dependencies
+In order to run the rake tests, you may require the following gems to be installed on your system:
 
-Install
+: rake
+: rack-test
+: test-unit
+
+
+### Install
 : rake test
-: gem build usefuldb.gemspec
-: sudo gem install usfuldb-x.x.x.gem
+: rake install
