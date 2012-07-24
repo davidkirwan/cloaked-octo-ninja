@@ -1,3 +1,6 @@
 usefuldb gem CHANGELOG
 
-## Version 0.0.0
+## Version 0.0.1
+- Added test for adding entries to the database
+- Added test for removing entries from the database
+- Added test for loading and saving the database
