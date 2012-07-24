@@ -1,2 +1,5 @@
 *.gem
 *~
+
+# Stop packages reaching the repo
+pkg/
