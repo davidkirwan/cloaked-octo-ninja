@@ -22,140 +22,143 @@ class UsefulDBTest < Test::Unit::TestCase
   include Rack::Test::Methods
   
   def setup
-    UsefulUtils.dbLoad
+    UsefulDB.dbLoad
   end
 
   #def teardown
   #  UsefulUtils.dbSave
   #end
-  
+
+
+  # Test to check adding of entries to the database
   def test_add
     puts yellow("## Executing test_add")
   
     begin
       puts "Check the starting count in the DB is 2 entries: " +
-      blue(assert_equal(2, UsefulUtils.count()).to_s)
-    rescue EmptyDB => e
+      blue(assert_equal(2, UsefulDB.count()).to_s)
+    
+      entry = {"tag" => ["install", "rubygems", "website", "usefuldb"], "value" => "http://rubygems.org/usefuldb"}
+      puts "Create a new entry: " + entry.inspect
+    
+      puts "Test to check adding duplicate element to the DB fails"
+      UsefulDB.add(entry, {})
+      
+    rescue UsefulDB::EmptyDB => e
       assert(false, red(e.message))
-    end
-    
-    entry = {"tag" => ["install", "rubygems", "website", "usefuldb"], "value" => "http://rubygems.org/usefuldb"}
-    puts "Create a new entry: " + entry.inspect
-    
-    puts "Test to check adding duplicate element to the DB fails"
-    begin
-      UsefulUtils.add(entry)
-    rescue EntryInDB => e
+    rescue UsefulDB::EntryInDB => e
       puts red(e.message) + green(" this is expected")
       #puts e.backtrace
     end
     
-    puts "Write the DB structure back to disk"
-    UsefulUtils.dbSave
-    UsefulUtils.dbLoad
-    
     begin
+      puts "Write the DB structure back to disk"
+      UsefulDB.dbSave
+      UsefulDB.dbLoad
+      
       puts "Check the total number of entries in the DB is still 2 " +
-      blue(assert_equal(2, UsefulUtils.count).to_s)  
-    rescue EmptyDB => e
+      blue(assert_equal(2, UsefulDB.count).to_s)  
+    rescue UsefulDB::EmptyDB => e
       assert(false, red(e.message))
-    end
-    
-    entry2 = {"tag" => ["interesting", "gem", "website", "twitter"], "value" => "https://github.com/sferik/twitter/"}
-    puts "Creating another element" + entry2.inspect
+    end 
     
     msg = "Test to check adding new element to the DB succeeds: "
     begin
-      UsefulUtils.add(entry2)
-      puts msg + blue(assert_equal(3, UsefulUtils.count).to_s)  
-    rescue EntryInDB => e
-      puts red(e.message) + green(" this is expected")
+      entry2 = {"tag" => ["interesting", "gem", "website", "twitter"], "value" => "https://github.com/sferik/twitter/"}
+      puts "Creating another element" + entry2.inspect
+      
+      UsefulDB.add(entry2, {})
+      puts msg + blue(assert_equal(3, UsefulDB.count).to_s)
+      
+    rescue UsefulDB::EntryInDB => e
+      assert(false, red(e.message))
       #puts e.backtrace
-    rescue EmptyDB => e
+    rescue UsefulDB::EmptyDB => e
       assert(false, red(e.message))
     end
         
     puts green("test_add passed")
   end
-  
-  
+
+ 
+  # Test to check saving entries to the database
   def test_save
     puts yellow("\n## Executing test_save")
     
-    entry = {"tag" => ["interesting", "gem", "website", "twitter"], "value" => "https://github.com/sferik/twitter/"}
-    puts "Creating another element" + entry.inspect
-    
     msg = "Test to check adding new element to the DB succeeds: "
     begin
-      UsefulUtils.add(entry)
-      puts msg + blue(assert_equal(3, UsefulUtils.count).to_s)  
-    rescue EntryInDB => e
+      entry = {"tag" => ["interesting", "gem", "website", "twitter"], "value" => "https://github.com/sferik/twitter/"}
+      puts "Creating another element" + entry.inspect
+      
+      UsefulDB.add(entry, {})
+      puts msg + blue(assert_equal(3, UsefulDB.count).to_s)  
+    rescue UsefulDB::EntryInDB => e
       puts red(e.message) + green(" this is expected")
       #puts e.backtrace
-    rescue EmptyDB => e
+    rescue UsefulDB::EmptyDB => e
       assert(false, red(e.message))
     end
     
-    puts "Saving the DB"
-    UsefulUtils.dbSave
-    UsefulUtils.dbLoad
-    
     begin
+      puts "Saving the DB"
+      UsefulDB.dbSave
+      UsefulDB.dbLoad
+    
       puts "Check the total number of entries in the DB is now 3 " +
-      blue(assert_equal(3, UsefulUtils.count).to_s)  
-    rescue EmptyDB => e
+      blue(assert_equal(3, UsefulDB.count).to_s)  
+    rescue UsefulDB::EmptyDB => e
       assert(false, red(e.message))
     end
-
 
     begin
-      UsefulUtils.remove(2)
-    rescue KeyOutOfBounds => e
+      UsefulDB.remove(2, {})
+      UsefulDB.dbSave
+    rescue UsefulDB::KeyOutOfBounds => e
       assert(false, red(e.message))
-    rescue EmptyDB => e
+    rescue UsefulDB::EmptyDB => e
       assert(false, red(e.message))
     end
-
-    UsefulUtils.dbSave
 
     puts green("test_save passed")
   end
 
 
+  # Test to check removal of entries from the database
   def test_remove()
     puts yellow("\n## Executing test_remove")
 
-    entry = {"tag" => ["test"], "value" => "testvalue"}
-    entry2 = {"tag" => ["test2"], "value" => "testvalue2"}
-    puts "Creating another element" + entry.inspect + " and " + entry2.inspect
-    
-    puts "Test to check adding new element to the DB succeeds"
     begin
-      UsefulUtils.add(entry)
-      UsefulUtils.add(entry2)
-    rescue EntryInDB => e
-      assert(false, red(e.message))
-    end
-    
-    puts "Saving the DB"
-    UsefulUtils.dbSave
-    UsefulUtils.dbLoad
-
-    puts "Removing those 2 entries from the database"
-    begin
-      UsefulUtils.remove(2)
-      puts blue(assert_equal(3, UsefulUtils.count))
-      UsefulUtils.remove(2)
-      puts blue(assert_equal(2, UsefulUtils.count))
-    rescue KeyOutOfBounds => e
-      assert(false, red(e.message))
-    rescue EmptyDB => e
+      puts "Test to check adding new element to the DB succeeds"
+      
+      entry = {"tag" => ["test"], "value" => "testvalue"}
+      entry2 = {"tag" => ["test2"], "value" => "testvalue2"}
+      puts "Creating another element" + entry.inspect + " and " + entry2.inspect
+ 
+      UsefulDB.add(entry, {})
+      UsefulDB.add(entry2, {})
+    rescue UsefulDB::EntryInDB => e
       assert(false, red(e.message))
     end
 
-    puts "Saving the DB"
-    UsefulUtils.dbSave
-    
+    begin
+      puts "Saving the DB"
+      UsefulDB.dbSave
+      UsefulDB.dbLoad
+
+      puts "Removing those 2 entries from the database"
+      UsefulDB.remove(2, {})
+      puts blue(assert_equal(3, UsefulDB.count))
+      UsefulDB.remove(2, {})
+      puts blue(assert_equal(2, UsefulDB.count))
+
+      puts "Saving the DB"
+      UsefulDB.dbSave
+    rescue UsefulDB::KeyOutOfBounds => e
+      assert(false, red(e.message))
+    rescue UsefulDB::EmptyDB => e
+      assert(false, red(e.message))
+    end
+
     puts green("test_remove passed")
   end
 
