@@ -68,7 +68,7 @@ module UsefulDB
       
       # Search for a tag in the DB
       def search(tag)
-        msg = "Searching the database for tag: " + yellow(tag)
+        msg = "Searching the database for tag: " + yellow(tag) + "\n"
         
         @data.each do |db|
           if db["tag"].include?(tag)
