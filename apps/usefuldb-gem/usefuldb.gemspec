@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
   s.post_install_message = <<-INSTALL
   
 INSTALL
-
+  s.license 	= 'CC BY-SA 3.0'
   s.add_development_dependency "bundler"
   s.add_development_dependency "rack-test"
 end

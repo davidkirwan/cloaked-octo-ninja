@@ -23,7 +23,8 @@ begin
     opts.banner = <<-WELCOME
 UsefulDB - a simple command and URL database
 
-   Useage:
+   Useage:  usefuldb <searchtag1> <searchtag2> .. <searchtagN>
+
 WELCOME
   
     opts.on('-a', '--add', "Add an entry to the database") do |arg|
