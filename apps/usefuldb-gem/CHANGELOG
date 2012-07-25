@@ -4,3 +4,12 @@ usefuldb gem CHANGELOG
 - Added test for adding entries to the database
 - Added test for removing entries from the database
 - Added test for loading and saving the database
+- Added executable script usefuldb, and the barebones parameter parsing system therein
+- Refactored the tests to allow for easier reading of the code
+- Updated the README to include information about dependencies and installation instructions
+- Wrapped all current codebase in a single Ruby module: UsefulDB
+- Added search functionality to the system
+- Added the functionality to add elements to the database
+
+## Version 0.0.0
+- Added core functionality

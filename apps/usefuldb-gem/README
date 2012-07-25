@@ -10,4 +10,4 @@ In order to run the rake tests, you may require the following gems to be install
 
 ### Install
 : rake test
-: rake install
+: rake install / sudo rake install
