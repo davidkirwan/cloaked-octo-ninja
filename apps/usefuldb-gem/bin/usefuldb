@@ -24,7 +24,7 @@ begin
   optparse = OptionParser.new do |opts|
     
     opts.banner = <<-WELCOME
-UsefulDB - a simple command and URL database
+UsefulDB - a simple command and URL database (#{UsefulDB::Version})
 
    Useage:  usefuldb <searchtag1> <searchtag2> .. <searchtagN>
 

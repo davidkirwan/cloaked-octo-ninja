@@ -60,8 +60,8 @@ module UsefulDB
       def remove(key, opts)
         if @data.count == 0
           raise EmptyDB, "You cannot call the remove function on an empty Database!"
-        elsif @data.count < key || key < 0
-          raise KeyOutOfBounds, "Key does not exist in the DB"
+        elsif @data.count <= key || key < 0
+          raise KeyOutOfBounds, "Key is out of bounds and therefore does not exist in the DB"
         else
           @data.delete_at(key) 
         end

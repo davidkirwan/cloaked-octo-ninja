@@ -1,13 +1,11 @@
-## Readme
-
-### Dependencies
-In order to run the rake tests, you may require the following gems to be installed on your system:
-
-: rake
-: rack-test
-: test-unit
-
+## Readme - v0.0.4
 
 ### Install
+To run the unit tests use the following rake target
 : rake test
+
+If you cloned the repository, or downloaded this gem as an archive, you can install using the following rake target
 : rake install / sudo rake install
+
+This gem is also stored on rubygems.org and can be installed with the following command:
+gem install usefuldb
