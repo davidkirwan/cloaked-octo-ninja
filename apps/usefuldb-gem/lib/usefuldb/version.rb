@@ -7,7 +7,7 @@ module UsefulDB
       
       MAJOR = 0 unless defined? MAJOR
       MINOR = 0 unless defined? MINOR
-      PATCH = 4 unless defined? PATCH
+      PATCH = 5 unless defined? PATCH
 
       def to_s
         [MAJOR, MINOR, PATCH].compact.join('.')
