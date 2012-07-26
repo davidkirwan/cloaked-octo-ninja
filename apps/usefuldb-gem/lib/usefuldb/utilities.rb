@@ -22,7 +22,8 @@ module UsefulDB
       # Save the database to disk
       def dbSave()
         if @dbpath.nil?
-          @dbpath = File.expand_path(File.dirname(__FILE__) + '/../../resources/db.yaml')
+          #@dbpath = File.expand_path(File.dirname(__FILE__) + '/../../resources/db.yaml')
+          @dbpath = ENV['HOME'] + "/.usefuldb/db.yaml"
           Settings.save(@data, @dbpath)
         else
           Settings.save(@data, @dbpath)
@@ -32,7 +33,8 @@ module UsefulDB
       
       # Load the database from disk
       def dbLoad()
-        @dbpath = File.expand_path(File.dirname(__FILE__) + '/../../resources/db.yaml')
+        #@dbpath = File.expand_path(File.dirname(__FILE__) + '/../../resources/db.yaml')
+        @dbpath = ENV['HOME'] + "/.usefuldb/db.yaml"
         Settings.load(dbpath)
         @data = Settings.data
       end
@@ -66,6 +68,20 @@ module UsefulDB
       end
       
       
+      # Setup the system for the first time
+      def setup()
+        resourceDir = ENV['HOME'] + "/.usefuldb/"
+        if File.directory?(resourceDir) 
+          # The folder already exists, do nothing
+        else
+          # We need to create this folder and install the DB there.
+          FileUtils.mkdir(resourceDir)
+          dbpath = File.expand_path(File.dirname(__FILE__) + '/../resources/db.yaml')
+          FileUtils.cp(dbpath, resourceDir)
+        end
+      end
+      
+      
       # Search for a tag in the DB
       def search(tag)
         msg = "Searching the database for tag: " + yellow(tag) + "\n"
@@ -77,6 +93,12 @@ module UsefulDB
           end
         end
         return msg
+      end
+      
+      
+      # List out all elements in the DB
+      def list
+        return @data
       end
       
   
