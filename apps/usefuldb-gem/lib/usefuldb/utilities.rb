@@ -76,7 +76,7 @@ module UsefulDB
         else
           # We need to create this folder and install the DB there.
           FileUtils.mkdir(resourceDir)
-          dbpath = File.expand_path(File.dirname(__FILE__) + '/../resources/db.yaml')
+          dbpath = File.expand_path(File.dirname(__FILE__) + '/../../resources/db.yaml')
           FileUtils.cp(dbpath, resourceDir)
         end
       end

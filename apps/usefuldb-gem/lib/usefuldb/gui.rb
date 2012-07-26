@@ -13,8 +13,12 @@ module UsefulDB
       
       def list
         UsefulDB.dbLoad
-        UsefulDB::UsefulUtils.list.each_with_index do |i, index|
+        
+        index = 0
+        
+        UsefulDB::UsefulUtils.list.each do |i|
           puts red(index)
+          index += 1
           puts "- Tags: " + yellow(i["tag"].to_s) + "\n"
           puts "- Value: " + red(i["value"]) + blue("\n##\n")
         end
