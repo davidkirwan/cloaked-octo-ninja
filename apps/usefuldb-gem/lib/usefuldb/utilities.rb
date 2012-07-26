@@ -88,7 +88,17 @@ module UsefulDB
         
         @data.each do |db|
           if db["tag"].include?(tag)
-            msg += "- Tags: " + db["tag"].to_s + "\n"
+            index_tag = 0
+            msg += "- Tags: "
+            db["tag"].each do |i|
+              if index_tag == 0
+                msg += yellow(i)
+              else
+                msg += ", " + yellow(i)
+              end
+              index_tag += 1
+            end
+            msg += "\n"
             msg += "- Value: " + db["value"] + blue("\n##\n")
           end
         end

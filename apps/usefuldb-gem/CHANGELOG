@@ -1,5 +1,9 @@
 usefuldb gem CHANGELOG
 
+## Version 0.0.4
+- Altered the UsefulDB::GUI.list function's output to mimic Array#to_s as it was not operating correctly on the Mac platform I tested the gem on
+- Altered the UsefulDB::UsefulUtils.search function's output to mimic Array#to_s as it was not operating correctly on the Mac platform I tested the gem on
+
 ## Version 0.0.3
 - Attempt to fix bug with traversing the database array
 

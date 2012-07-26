@@ -4,7 +4,7 @@ require 'rake'
 
 Gem::Specification.new do |s|
   s.name        = 'usefuldb'
-  s.version     = '0.0.3'
+  s.version     = '0.0.4'
   s.date        = '2012-07-26'
   s.summary     = "A simple commands and URLs database for storage of useful information"
   s.description = "usefuldb is a simple database which is designed to store useful commands and URLs"

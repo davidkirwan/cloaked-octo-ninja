@@ -13,16 +13,26 @@ module UsefulDB
       
       def list
         UsefulDB.dbLoad
-        
         index = 0
-        
         UsefulDB::UsefulUtils.list.each do |i|
           puts red(index)
           index += 1
-          puts "- Tags: " + yellow(i["tag"].to_s) + "\n"
-          puts "- Value: " + red(i["value"]) + blue("\n##\n")
+          index_tag = 0
+          msg = ''
+          msg += "- Tags: "
+          i["tag"].each do |j|
+            if index_tag == 0
+              msg += yellow(j)
+            else
+              msg += ", " + yellow(j)
+            end
+            index_tag += 1
+          end
+          puts msg + "\n"
+          puts "- Value: " + red(i["value"]) + blue("\n##\n")     
         end
       end
+      
       
       
       def remove(opts)
