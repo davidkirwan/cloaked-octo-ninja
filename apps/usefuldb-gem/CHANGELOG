@@ -1,5 +1,11 @@
 usefuldb gem CHANGELOG
 
+## Version 0.0.3
+- Attempt to fix bug with traversing the database array
+
+## Version 0.0.2
+- Fixed bug with database not being copied to the users home directory correctly
+
 ## Version 0.0.1
 - Added test for adding entries to the database
 - Added test for removing entries from the database
