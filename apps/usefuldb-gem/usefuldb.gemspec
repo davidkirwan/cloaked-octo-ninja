@@ -1,10 +1,12 @@
 # -*- encoding: utf-8 -*-
-$:.push File.expand_path("../lib", __FILE__)
+#$:.push File.expand_path("../lib", __FILE__)
+require File.expand_path('../lib/usefuldb/version', __FILE__)
 require 'rake'
+
 
 Gem::Specification.new do |s|
   s.name        = 'usefuldb'
-  s.version     = '0.0.4'
+  s.version     = UsefulDB::Version
   s.date        = '2012-07-26'
   s.summary     = "A simple commands and URLs database for storage of useful information"
   s.description = "usefuldb is a simple database which is designed to store useful commands and URLs"
@@ -29,5 +31,6 @@ for more information see: http://creativecommons.org/licenses/by-sa/3.0/
 INSTALL
   s.license 	= 'CC BY-SA 3.0'
   s.add_development_dependency "bundler"
+  s.add_development_dependency "test-unit"
   s.add_development_dependency "rack-test"
 end
