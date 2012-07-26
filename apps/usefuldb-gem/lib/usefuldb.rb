@@ -2,6 +2,7 @@ require 'usefuldb/settings'
 require 'usefuldb/utilities'
 require 'usefuldb/exceptions'
 require 'usefuldb/gui'
+require 'fileutils'
 
 module UsefulDB
   class << self
@@ -28,6 +29,10 @@ module UsefulDB
     
     def search(args)
       return UsefulDB::UsefulUtils.search(args)
+    end
+    
+    def setup
+      UsefulDB::UsefulUtils.setup
     end
 
   end

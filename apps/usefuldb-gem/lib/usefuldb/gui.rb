@@ -10,7 +10,34 @@ module UsefulDB
         UsefulDB.dbLoad
         args.each {|i| puts "\n" + UsefulDB::UsefulUtils.search(i)} 
       end
-       
+      
+      def list
+        UsefulDB.dbLoad
+        UsefulDB::UsefulUtils.list.each_with_index do |i, index|
+          puts red(index)
+          puts "- Tags: " + yellow(i["tag"].to_s) + "\n"
+          puts "- Value: " + red(i["value"]) + blue("\n##\n")
+        end
+      end
+      
+      
+      def remove(opts)
+        if opts[:v] then puts "in verbose mode\n"; end
+        list()
+        
+        puts "Enter the number of the element from the list above which you want to delete"
+        value = STDIN.gets
+                
+        begin
+          UsefulDB.remove(value.to_i, {})
+          UsefulDB.dbSave
+        rescue KeyOutOfBounds => e
+          puts e.message + "\nexiting."
+          exit()
+        end
+        
+      end
+      
        
       def add(opts)
         UsefulDB.dbLoad

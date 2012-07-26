@@ -10,6 +10,9 @@ usefuldb gem CHANGELOG
 - Wrapped all current codebase in a single Ruby module: UsefulDB
 - Added search functionality to the system
 - Added the functionality to add elements to the database
+- Added the functionality to list all elements in the database
+- Added functionality to delete an element from the database
+- On first run, the system will now install the database in the users home directory at ~/.usefuldb/db.yaml
 
 ## Version 0.0.0
 - Added core functionality
