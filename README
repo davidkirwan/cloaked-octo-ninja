@@ -4,6 +4,7 @@ Main repository for all my projects too small to warrant their own repository.
 =======
 .
 |-- apps
+|   |-- 4chan-crawler
 |   |-- bash-search-script
 |   |-- directory2html
 |   |-- README
