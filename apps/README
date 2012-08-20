@@ -1,14 +1,5 @@
 ## apps README
 
-<<<<<<< HEAD
-- 4chan-crawler Contains the code for a simple Ruby web-crawling script for downloading images in threads discovered through search term
-- bash-search-script/ Contains the code for a simple bash "useful url and command database" search script.
-- directory2html/ Contains a ruby script which creates html files containing the directory structure of a filesystem.
-- house-cleaning/ A simple ruby rake script for performing house cleaning functions on a directory. 
-- rrdtool-interface-script/ Contains the code to setup and monitor an interface by graphing the data produced by ifconfig using rrdtool and displaying the results on a html page.
-- usefuldb-gem/ - Removed, and now stored in its own repository: https://github.com/davidkirwan/usefuldb-gem
-- website/ Contains the code powering the www.dkirwan.ie website.
-=======
 ### 4chan-crawler/ 
 - Contains the code for a simple Ruby web-crawling script for downloading images in threads discovered through search term
 
@@ -17,6 +8,10 @@
 
 ### directory2html/
 - Contains a ruby script which creates html files containing the directory structure of a filesystem.
+
+### house-cleaning/
+- Contains a rake script for performing house cleaning functions on a directory, such as incrementally naming all
+files, and deleting all duplicate files from the directory
 
 ### rrdtool-interface-script/
 Contains the code to setup and monitor an interface by graphing the data produced by ifconfig using rrdtool and displaying the results on a html page.
@@ -29,5 +24,3 @@ Contains the code to setup and monitor an interface by graphing the data produce
 
 ### website/
 - Contains the code powering the www.dkirwan.ie website.
->>>>>>> 50e6abc1a8be0e41052d8a4f00c78b72f33e1dad
-
