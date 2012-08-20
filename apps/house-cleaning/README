@@ -1,0 +1,27 @@
+## Description
+A simple ruby rake script for performing house cleaning functions on a directory, such as
+renaming all files to an incrementing number. Eg IMG_13302.jpg becomes 0.jpg, IMG_13303.jpg
+becomes 1.jpg, and IMG_13304.GIF becomes 2.gif. The script will then attempt to locate all
+duplicate files in the folder, and then move them to a duplicate folder.
+
+## Author
+https://github.com/davidkirwan
+
+## Licence
+Released under the creative commons attribution-sharealike 3.0 unported (cc by-sa 3.0) licence.
+for more information see: http://creativecommons.org/licenses/by-sa/3.0/
+
+## Usage
+To execute the system, simply run the following command from the same directory as the Rakefile:
+- rake house_clean --trace
+
+If you wish to run this system from another directory simply point rake at the Rakefile in the following way:
+- rake -f /path/to/Rakefile house_clean --trace
+
+If you wish to supply it another config.yaml file, you can do this in the following ways:
+- rake properties=path/to/config/yaml.file house_clean --trace
+- rake -f /path/to/Rakefile properties=path/to/config/yaml.file house_clean --trace
+
+## config.yaml configuration file
+This file should contain a single line pointing to the path you wish the system to be run against.
+eg: path: "testTarget/" or path: "c:/path/to/folder/you/want/to/use/the/system/on/testTarget/"

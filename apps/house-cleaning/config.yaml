@@ -1,0 +1,19 @@
+#####################################################################################################################
+### => Description  A simple ruby rake script for performing house cleaning functions on a directory, such as
+#                   renaming all files to an incrementing number. Eg IMG_13302.jpg becomes 0.jpg, IMG_13303.jpg
+#                   becomes 1.jpg, and IMG_13304.GIF becomes 2.gif. The script will then attempt to locate all
+#                   duplicate files in the folder, and then move them to a duplicate folder.
+#
+### => Author       https://github.com/davidkirwan
+#
+### => Licence      Released under the creative commons attribution-sharealike 3.0 unported (cc by-sa 3.0) licence.
+#                   for more information see: http://creativecommons.org/licenses/by-sa/3.0/
+#
+#####################################################################################################################
+# Use XML markup they said
+# But compared to YAML it's truly terrible
+# I refuse to use it
+#
+# - haiku
+
+path: "testTarget/"

@@ -1,0 +1,138 @@
+#####################################################################################################################
+### => Description  A simple ruby rake script for performing house cleaning functions on a directory, such as
+#                   renaming all files to an incrementing number. Eg IMG_13302.jpg becomes 0.jpg, IMG_13303.jpg
+#                   becomes 1.jpg, and IMG_13304.GIF becomes 2.gif. The script will then attempt to locate all
+#                   duplicate files in the folder, and then move them to a duplicate folder.
+#
+### => Author       https://github.com/davidkirwan
+#
+### => Licence      Released under the creative commons attribution-sharealike 3.0 unported (cc by-sa 3.0) licence.
+#                   for more information see: http://creativecommons.org/licenses/by-sa/3.0/
+#
+#####################################################################################################################
+
+### => STD Lib Imports
+require 'logger'
+require 'date'
+
+### => Custom Imports
+scriptPath = File.expand_path(File.dirname(__FILE__))
+require scriptPath + '/classes/config-reader.rb'
+require scriptPath + '/classes/rename-files.rb'
+require scriptPath + '/classes/calculate-hashes.rb'
+require scriptPath + '/classes/move-duplicates.rb'
+
+### => Variables
+# Date, used in some of the directory/filename generation
+date = DateTime.now
+theDate = date.year.to_s() + "-" + "%02d" %  date.month.to_s() + "-" + "%02d" %  date.day.to_s()
+
+unless File.directory?("#{scriptPath}/logs") then FileUtils.mkdir("#{scriptPath}/logs") end
+log = Logger.new("#{scriptPath}/logs/#{theDate}.log")
+# Set the logging output level
+log.level = Logger::DEBUG
+#log.level = Logger::WARN
+#log.level = Logger::INFO
+
+# Variable to store configuration settings read in from file
+data = nil
+
+# Array of Hash containing path and sha values
+fileList = nil
+
+# Number of duplicate files found
+theCount = nil
+
+############################### => Default Task
+task :default => 'menu'
+
+task :menu do
+  puts "##################################################################\n"
+  puts "# rake --tasks => to print out a list of availible tasks for     #\n"
+  puts "#                 this Rakefile                                  #\n"
+  puts "#                                                                #\n"
+  puts "#                                                                #\n"
+  puts "#                                                                #\n"
+  puts "# rake properties=path/to/config/yaml.file <task>                #\n"
+  puts "##################################################################\n"
+  puts scriptPath
+end
+
+task :read_config do
+  log.info ":read_config task executing"
+
+  path = ENV["properties"] || scriptPath + '/config.yaml'
+  log.debug "Reading the #{path} file."
+  begin
+    data = ConfigReader.load(path, log)
+  rescue Exception => e
+    log.fatal e.message
+    puts e.message
+    exit()
+  end
+  log.debug data.inspect
+
+  log.info "done"
+end
+
+
+task :rename_files do
+  log.debug ":rename_files executing"
+  begin
+    RenameFiles.renameFileList(data["path"], log)
+  rescue Exception => e
+    log.fatal e.message
+    puts e.message
+    exit()
+  end
+  log.debug "done"
+end
+
+
+task :calculate_hashes do
+  log.debug ":calculate_hashes executing"
+  begin
+    fileList = CalculateHashes.calculateHashList(data["path"], log)
+    log.debug fileList.inspect
+  rescue Exception => e
+    log.fatal e.message
+    puts e.message
+    exit()
+  end
+  log.debug "done"
+end
+
+
+task :move_duplicates do
+  log.debug ":move_duplicates executing"
+  begin
+    theCount = MoveDuplicates.dealWithDuplicates(fileList, data["path"], log)
+  rescue Exception => e
+    log.fatal e.message
+    puts e.message
+    exit()
+  end
+  log.debug "done"
+end
+
+
+desc "Perform house cleaning functions on all files contained within a directory named by path variable"
+task :house_clean => [:read_config, :rename_files, :calculate_hashes, :move_duplicates] do
+  log.debug ":house_clean executing"
+  
+  log.info "All files have been renamed to match the naming scheme."
+  if theCount > 0
+    log.info "#{theCount.to_s} duplicate files were found and moved to the duplicates directory."
+  else
+    log.info "#{theCount.to_s} duplicate files were found."
+  end
+    
+  log.debug "House keeping complete"
+end
+
+
+
+
+
+
+
