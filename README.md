@@ -12,6 +12,7 @@ or FITNESS FOR A PARTICULAR PURPOSE.
 |   |-- bash-search-script
 |   |-- directory2html
 |   |-- house-cleaning
+|   |-- mongodb-backup-script
 |   |-- README
 |   |-- rrdtool-interface-script
 |   |-- snippets

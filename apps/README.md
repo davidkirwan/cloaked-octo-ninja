@@ -12,6 +12,9 @@
 ### house-cleaning/
 - Contains a rake script for performing house cleaning functions on a directory, such as incrementally naming all files, and deleting all duplicate files from the directory
 
+### mongodb-backup-script/
+- Contains a simple Ruby Rake system for automating the backup of a MongoDB database.
+
 ### rrdtool-interface-script/
 - Contains the code to setup and monitor an interface by graphing the data produced by ifconfig using rrdtool and displaying the results on a html page.
 

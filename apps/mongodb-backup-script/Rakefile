@@ -1,0 +1,69 @@
+#########################################################################
+# @author       David Kirwan
+# @description  Calls MongoDB utility mongodump on the locally running 
+#               MongoDB server
+#
+#
+# @date   24-08-2012
+#########################################################################
+
+############################### => require statements
+require 'date'
+require 'logger'
+require 'fileutils'
+
+############################### => Variables
+scriptPath = File.expand_path(File.dirname(__FILE__))
+require "#{scriptPath}/settings/config-reader.rb"
+
+# Date variables
+date = DateTime.now
+theDate = date.year.to_s() + "-" + "%02d" %  date.month.to_s() + "-" + "%02d" % date.day.to_s()
+
+# Create Logger instance, change to STDOUT if you want messages printed to console
+log = Logger.new("#{scriptPath}/logs/#{theDate}.log")
+# Set the logging output level
+log.level = Logger::DEBUG
+#log.level = Logger::WARN
+#log.level = Logger::INFO
+
+# Data
+data = nil
+
+
+task :default => 'menu'
+
+task :menu do
+  puts "##################################################################\n"
+  puts "# rake --tasks => to print out a list of availible tasks for     #\n"
+  puts "#                 this Rakefile                                  #\n"
+  puts "##################################################################\n"
+  puts scriptPath
+end
+
+
+namespace :db do
+
+  desc "Task for backing up the locally running MongoDB"
+  task :backup => [:read_config] do
+  
+    dumppath = "#{scriptPath}/dump"
+    
+    log.debug `pwd`
+    log.debug `#{data["mongodumppath"]}`
+    log.debug dumppath
+    log.debug `tar -zcf #{theDate}.tar.gz #{dumppath}`
+    FileUtils.rm_rf(dumppath)
+  
+  end
+end
+
+
+task :read_config do
+  path = ENV["properties"] || 'settings/settings.yaml'
+  log.debug "\nReading the #{path} file."
+  Settings.load(path)
+  data = Settings.data
+  log.debug data.inspect
+  puts "done"
+end

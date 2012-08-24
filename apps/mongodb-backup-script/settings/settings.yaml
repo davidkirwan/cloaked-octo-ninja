@@ -1,0 +1,7 @@
+# Use XML markup they said
+# But compared to YAML it's truly terrible
+# I refuse to use it
+#
+# - An interns haiku
+
+mongodumppath    : /home/david/MongoDB/bin/mongodump
