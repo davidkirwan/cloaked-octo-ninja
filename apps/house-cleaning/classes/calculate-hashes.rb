@@ -25,10 +25,13 @@ class CalculateHashes
     def calculateHashList(path, log)
       @hashList = Array.new
       
-      if path.scan(/\/$/) == "/"
-        files = Dir[path + "*"]
+      matchCheck = path.match(/\/$/)
+      log.debug "The final character in the path is: " + matchCheck[0].to_s
+
+      if matchCheck[0] == "/"
+        files = Dir["#{path}*"]
       else
-        files = Dir[path + "/*"]
+        files = Dir["#{path}/*"]
         path += "/"
       end
       

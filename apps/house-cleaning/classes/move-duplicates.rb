@@ -22,11 +22,13 @@ class MoveDuplicates
     
     
     def dealWithDuplicates(fileList, path, log)
-      if path.scan(/\/$/) == "/"
-        dupPath = path + "/duplicates"
-      else
-        path += "/"
+      matchCheck = path.match(/\/$/)
+      log.debug "The final character in the path is: " + matchCheck[0].to_s
+
+      if matchCheck[0] == "/"
         dupPath = path + "duplicates"
+      else
+        dupPath = path + "/duplicates"
       end
       
       log.debug "Path: " + path
