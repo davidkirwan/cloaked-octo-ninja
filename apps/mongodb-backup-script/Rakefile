@@ -60,7 +60,7 @@ end
 
 
 task :read_config do
-  path = ENV["properties"] || 'settings/settings.yaml'
+  path = ENV["properties"] || "#{scriptPath}/settings/settings.yaml"
   log.debug "\nReading the #{path} file."
   Settings.load(path)
   data = Settings.data
