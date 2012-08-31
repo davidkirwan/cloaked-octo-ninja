@@ -48,9 +48,13 @@ namespace :db do
   task :backup => [:read_config] do
   
     dumppath = "#{scriptPath}/dump"
-    
-    log.debug `pwd`
+    log.debug dumppath
+
+    log.debug "#{data["mongodumppath"]}"    
     log.debug `#{data["mongodumppath"]}`
+
+    FileUtils.cd(scriptPath)
+
     log.debug dumppath
     log.debug `tar -zcf #{theDate}.tar.gz #{dumppath}`
     FileUtils.rm_rf(dumppath)
