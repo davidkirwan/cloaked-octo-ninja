@@ -36,7 +36,7 @@ end
 def downloadALLthepics(theArg)
   puts theArg
   begin
-    doc = Nokogiri::HTML(open(theArg))
+    doc = Nokogiri::HTML(open(theArg, 'User-Agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:18.0) Gecko/18.0 Firefox/18.0'))
     
     doc.xpath('//div[@class="thread"]').each do |i|
 
