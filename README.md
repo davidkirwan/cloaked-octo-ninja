@@ -19,6 +19,7 @@ or FITNESS FOR A PARTICULAR PURPOSE.
     |   |-- usefuldb-gem
     |   `-- website
     |-- docs
+    |   |-- bitbucket-autoauthenticate-netrc
     |   |-- linux-link-bonding
     |   `-- README
     `-- README
