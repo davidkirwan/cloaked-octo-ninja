@@ -1,0 +1,43 @@
+<html>
+<head>
+<script type="text/javascript">
+function displayNumber()
+{
+  var valuea = document.getElementById('exampleThreeTextBoxOne').value;
+  var valueb = document.getElementById('exampleThreeTextBoxTwo').value;
+  document.getElementById('numberBox1').innerHTML = valuea;
+  document.getElementById('numberBox2').innerHTML = valueb;
+  var result = parseInt(valuea) + parseInt(valueb);
+  document.getElementById('numberBox3').innerHTML = result;
+
+  var valuec = document.getElementById('theanswer').value;
+  //alert(valuec);
+  document.getElementById('numberBox4').innerHTML = valuec;
+  var result2 = parseInt(valuec) * parseInt(result);
+  document.getElementById('numberBox5').innerHTML = result2;
+
+  
+}
+</script>
+</head>
+
+<body>
+<p>
+Example 3:</br>
+Enter in a number in each box :) </br></br>
+If we add <b id='numberBox1'> </b> to <b id='numberBox2'> </b> we get <b id='numberBox3'> </b> and if we multiply the answer by <b id='numberBox4'> </b>
+we get <b id='numberBox5'> </b>
+</p>
+<form>
+<input type="text" id="exampleThreeTextBoxOne" name="exampleThreeTextBoxOne" />
+<input type="text" id="exampleThreeTextBoxTwo" name="exampleThreeTextBoxTwo" />
+<input type="button" value="Clickme!" onclick="displayNumber()">
+<br/><br/><input type="text" id="theanswer" name="theanswer" />
+</input>
+</form>
+
+</br>
+</br>
+</body>
+</html>
+
