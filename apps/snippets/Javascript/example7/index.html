@@ -1,0 +1,119 @@
+<html>
+
+<head>
+ <script type="text/javascript" src="script.js"></script>
+ <link rel="stylesheet" type="text/css" href="style.css" />
+
+</head>
+
+<body onload="loadThisFirst(prompt('Which?'))">
+
+<div id="bodyDiv">
+
+  <div id="bodyImageDiv" >
+  </div>
+
+  <div id="hiddenBox" style="visibility:hidden"> <p>Hi there :)</p>
+  </div>
+
+  <form id="bodyForm">
+
+  <input id="leftTextBox" type="text" onfocus="leftFocus()" value="Type something in here!"/>
+  <input id="middleTextBox" type="text" onfocus="middleFocus()" value="Type something in here!"/>
+  <input id="rightTextBox" type="text" onfocus="rightFocus()" value="Type something in here!"/> <br/><br/>
+  <input id="submitButton" type="button" onclick="buttonClick()" value="submit"/>
+
+
+  <input id="hideButton" type="button" onclick="hideAndShow()" value="hide/show" />
+
+
+  </form>
+
+</div>
+
+<a href="http://www.w3schools.com/tags/ref_eventattributes.asp">HTML Events</a>
+<br/><br/>
+
+<div id="hiddenDiv" style="visibility:hidden">
+
+<table class="reference">
+<tr>
+<th align="left" width="25%">Attribute</th>
+<th align="left" width="15%">Value</th>
+<th align="left" width="60%">Description</th>
+</tr>
+<tr>
+<td>onload</td>
+<td><i>script</i></td>
+<td>Script to be run when a document load</td>
+</tr>
+<tr>
+<td>onunload</td>
+<td><i>script</i></td>
+<td>Script to be run when a document unload</td>
+</tr>
+</table>
+<br />
+<hr />
+
+<h2>Form Events</h2>
+<p>The attributes below can be used in form elements:</p>
+<table class="reference">
+<tr>
+<th align="left" width="25%">Attribute</th>
+<th align="left" width="15%">Value</th>
+<th align="left" width="60%">Description</th>
+</tr>
+<tr>
+<td>onblur</td>
+<td><i>script</i></td>
+<td>Script to be run when an element loses focus</td>
+</tr>
+<tr>
+<td>onchange</td>
+<td><i>script</i></td>
+<td>Script to be run when an element changes</td>
+</tr>
+<tr>
+<td>onfocus</td>
+<td><i>script</i></td>
+<td>Script to be run when an element gets focus</td>
+</tr>
+<tr>
+<td>onreset</td>
+<td><i>script</i></td>
+<td>Script to be run when a form is reset</td>
+</tr>
+<tr>
+<td>onselect</td>
+<td><i>script</i></td>
+<td>Script to be run when an element is selected</td>
+</tr>
+<tr>
+<td>onsubmit</td>
+<td><i>script</i></td>
+<td>Script to be run when a form is submitted</td>
+</tr>
+</table>
+<br />
+<hr />
+
+<h2>Image Events</h2>
+<p>The attribute below can be used with the img element:</p>
+<table class="reference">
+<tr>
+<th align="left" width="25%">Attribute</th>
+<th align="left" width="15%">Value</th>
+<th align="left" width="60%">Description</th>
+</tr>
+<tr>
+<td>onabort</td>
+<td><i>script</i></td>
+<td>Script to be run when loading of an image is interrupted</td>
+</tr>
+</table>
+
+</div>
+
+</body>
+</html>

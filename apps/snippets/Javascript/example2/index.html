@@ -1,0 +1,32 @@
+<html>
+<head>
+<script type="text/javascript">
+function displayValue()
+{
+  var valuea = document.getElementById('exampleTwoTextBoxOne').value;
+  var valueb = document.getElementById('exampleTwoTextBoxTwo').value;
+  var valuec = document.getElementById('exampleTwoTextBoxThree').value;
+  document.getElementById('animal1').innerHTML = valuea;
+  document.getElementById('animal2').innerHTML = valueb;
+  document.getElementById('animal3').innerHTML = valuec;
+}
+</script>
+</head>
+
+<body>
+<p>
+Example 2:</br>
+Enter in the names of your favourite animal in each box :) </br></br>
+The quick brown <b id='animal1'> #type something in :)# </b> jumped over the lazy <b id='animal2'> #type something in :)#</b> and ate it with <b id='animal3'> </b>
+</p>
+<form>
+<input type="text" id="exampleTwoTextBoxOne" name="exampleTwoTextBoxOne" />
+<input type="text" id="exampleTwoTextBoxTwo" name="exampleTwoTextBoxTwo" />
+<input type="text" id="exampleTwoTextBoxThree" name="exampleTwoTextBoxThree" />
+<input type="button" value="Clickme!" onclick="displayValue()">
+</input>
+</form>
+
+</body>
+</html>
+

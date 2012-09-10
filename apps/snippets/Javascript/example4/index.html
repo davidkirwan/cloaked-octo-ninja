@@ -1,0 +1,38 @@
+<html>
+<head>
+<script type="text/javascript">
+function changeImage(animal)
+{
+  if(animal == "cat")
+  {
+    document.getElementById('animalPic').src = "kitten.jpg"
+  }
+  else if(animal == "dog")
+  {
+    document.getElementById('animalPic').src = "puppy.jpg"
+  }
+  else
+  {
+    document.getElementById('animalPic').src = "pig.jpg"
+  }
+}
+
+</script>
+</head>
+
+<body>
+<p>
+Example 4:</br>
+Click the button of your choice :) <br/><br/>
+<img id="animalPic" src=""/>
+</p>
+<form>
+<input type="button" value="Cat" onclick="changeImage('cat')"/>
+<input type="button" value="Dog" onclick="changeImage('dog')"/>
+<input type="button" value="Pig" onclick="changeImage('pig')"/>
+</form>
+
+
+</body>
+</html>
+

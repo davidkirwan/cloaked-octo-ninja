@@ -1,0 +1,154 @@
+<html>
+<head>
+
+<script type="text/javascript" src="script.js"></script>
+</head>
+
+<body>
+<h1>Click Randomly Appearing Penguin (CRAP) Game</h1>
+<p><h3>Gameplay Instructions:</h3>
+The object of this game is to click the picture of the penguin as it moves around randomly on your screen! Everytime you click the penguin,
+you will score 10 points, but as a consequence the penguin will try to run from your mouse pointer a little faster!
+
+<br/><br/>Try to score more than <b>200 points</b> if you can!<br/><br/><b id="playerName"></b>
+</p>
+
+<form> 
+Player Name: <input type="text" id="name" name="name" value=""/><br/>
+<input type="button" value="Click me to enter name" onclick="entername()" />
+</form>
+<form>
+<input type="button" value="Click me to start the game!" onclick="displaymessage()" />
+</form>
+<p>
+Total Score = <input type="text" id="score" name="score" value="0"/>
+</p>
+<div id="winner">
+<table border="3" cellpadding="3" cellspacing="3">
+<tr>
+  <td rowspan="3" colspan="3"><b id="1"></b></td>
+  <td rowspan="3" colspan="3"><b id="2"></b></td>
+  <td rowspan="3" colspan="3"><b id="3"></b></td>
+  <td rowspan="3" colspan="3"><b id="4"></b></td>
+  <td rowspan="3" colspan="3"><b id="5"></b></td>
+  <td rowspan="3" colspan="3"><b id="6"></b></td>
+  <td rowspan="3" colspan="3"><b id="7"></b></td>
+  <td rowspan="3" colspan="3"><b id="8"></b></td>
+  <td rowspan="3" colspan="3"><b id="9"></b></td>
+  <td rowspan="3" colspan="3"><b id="10"></b></td>
+</tr>
+<tr>
+  <td rowspan="3" colspan="3"><b id="11"></b></td>
+  <td rowspan="3" colspan="3"><b id="12"></b></td>
+  <td rowspan="3" colspan="3"><b id="13"></b></td>
+  <td rowspan="3" colspan="3"><b id="14"></b></td>
+  <td rowspan="3" colspan="3"><b id="15"></b></td>
+  <td rowspan="3" colspan="3"><b id="16"></b></td>
+  <td rowspan="3" colspan="3"><b id="17"></b></td>
+  <td rowspan="3" colspan="3"><b id="18"></b></td>
+  <td rowspan="3" colspan="3"><b id="19"></b></td>
+  <td rowspan="3" colspan="3"><b id="20"></b></td>
+</tr>
+<tr>  
+  <td rowspan="3" colspan="3"><b id="21"></b></td>
+  <td rowspan="3" colspan="3"><b id="22"></b></td>
+  <td rowspan="3" colspan="3"><b id="23"></b></td>
+  <td rowspan="3" colspan="3"><b id="24"></b></td>
+  <td rowspan="3" colspan="3"><b id="25"></b></td>
+  <td rowspan="3" colspan="3"><b id="26"></b></td>
+  <td rowspan="3" colspan="3"><b id="27"></b></td>
+  <td rowspan="3" colspan="3"><b id="28"></b></td>
+  <td rowspan="3" colspan="3"><b id="29"></b></td>
+  <td rowspan="3" colspan="3"><b id="30"></b></td>
+</tr>
+<tr>
+  <td rowspan="3" colspan="3"><b id="31"></b></td>
+  <td rowspan="3" colspan="3"><b id="32"></b></td>
+  <td rowspan="3" colspan="3"><b id="33"></b></td>
+  <td rowspan="3" colspan="3"><b id="34"></b></td>
+  <td rowspan="3" colspan="3"><b id="35"></b></td>
+  <td rowspan="3" colspan="3"><b id="36"></b></td>
+  <td rowspan="3" colspan="3"><b id="37"></b></td>
+  <td rowspan="3" colspan="3"><b id="38"></b></td>
+  <td rowspan="3" colspan="3"><b id="39"></b></td>
+  <td rowspan="3" colspan="3"><b id="40"></b></td>
+</tr>
+<tr>
+  <td rowspan="3" colspan="3"><b id="41"></b></td>
+  <td rowspan="3" colspan="3"><b id="42"></b></td>
+  <td rowspan="3" colspan="3"><b id="43"></b></td>
+  <td rowspan="3" colspan="3"><b id="44"></b></td>
+  <td rowspan="3" colspan="3"><b id="45"></b></td>
+  <td rowspan="3" colspan="3"><b id="46"></b></td>
+  <td rowspan="3" colspan="3"><b id="47"></b></td>
+  <td rowspan="3" colspan="3"><b id="48"></b></td>
+  <td rowspan="3" colspan="3"><b id="49"></b></td>
+  <td rowspan="3" colspan="3"><b id="50"></b></td>
+</tr>
+<tr>
+  <td rowspan="3" colspan="3"><b id="51"></b></td>
+  <td rowspan="3" colspan="3"><b id="52"></b></td>
+  <td rowspan="3" colspan="3"><b id="53"></b></td>
+  <td rowspan="3" colspan="3"><b id="54"></b></td>
+  <td rowspan="3" colspan="3"><b id="55"></b></td>
+  <td rowspan="3" colspan="3"><b id="56"></b></td>
+  <td rowspan="3" colspan="3"><b id="57"></b></td>
+  <td rowspan="3" colspan="3"><b id="58"></b></td>
+  <td rowspan="3" colspan="3"><b id="59"></b></td>
+  <td rowspan="3" colspan="3"><b id="60"></b></td>
+</tr>
+<tr>
+  <td rowspan="3" colspan="3"><b id="61"></b></td>
+  <td rowspan="3" colspan="3"><b id="62"></b></td>
+  <td rowspan="3" colspan="3"><b id="63"></b></td>
+  <td rowspan="3" colspan="3"><b id="64"></b></td>
+  <td rowspan="3" colspan="3"><b id="65"></b></td>
+  <td rowspan="3" colspan="3"><b id="66"></b></td>
+  <td rowspan="3" colspan="3"><b id="67"></b></td>
+  <td rowspan="3" colspan="3"><b id="68"></b></td>
+  <td rowspan="3" colspan="3"><b id="69"></b></td>
+  <td rowspan="3" colspan="3"><b id="70"></b></td>
+</tr>
+<tr>
+  <td rowspan="3" colspan="3"><b id="71"></b></td>
+  <td rowspan="3" colspan="3"><b id="72"></b></td>
+  <td rowspan="3" colspan="3"><b id="73"></b></td>
+  <td rowspan="3" colspan="3"><b id="74"></b></td>
+  <td rowspan="3" colspan="3"><b id="75"></b></td>
+  <td rowspan="3" colspan="3"><b id="76"></b></td>
+  <td rowspan="3" colspan="3"><b id="77"></b></td>
+  <td rowspan="3" colspan="3"><b id="78"></b></td>
+  <td rowspan="3" colspan="3"><b id="79"></b></td>
+  <td rowspan="3" colspan="3"><b id="80"></b></td>
+</tr>
+<tr>  
+  <td rowspan="3" colspan="3"><b id="81"></b></td>
+  <td rowspan="3" colspan="3"><b id="82"></b></td>
+  <td rowspan="3" colspan="3"><b id="83"></b></td>
+  <td rowspan="3" colspan="3"><b id="84"></b></td>
+  <td rowspan="3" colspan="3"><b id="85"></b></td>
+  <td rowspan="3" colspan="3"><b id="86"></b></td>
+  <td rowspan="3" colspan="3"><b id="87"></b></td>
+  <td rowspan="3" colspan="3"><b id="88"></b></td>
+  <td rowspan="3" colspan="3"><b id="89"></b></td>
+  <td rowspan="3" colspan="3"><b id="90"></b></td>
+</tr>
+<tr>
+  <td rowspan="3" colspan="3"><b id="91"></b></td>
+  <td rowspan="3" colspan="3"><b id="92"></b></td>
+  <td rowspan="3" colspan="3"><b id="93"></b></td>
+  <td rowspan="3" colspan="3"><b id="94"></b></td>
+  <td rowspan="3" colspan="3"><b id="95"></b></td>
+  <td rowspan="3" colspan="3"><b id="96"></b></td>
+  <td rowspan="3" colspan="3"><b id="97"></b></td>
+  <td rowspan="3" colspan="3"><b id="98"></b></td>
+  <td rowspan="3" colspan="3"><b id="99"></b></td>
+  <td rowspan="3" colspan="3"><b id="100"></b></td>
+</tr>
+
+</table>
+
+</div>
+
+</body>
+</html>
