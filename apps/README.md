@@ -18,9 +18,6 @@
 ### rrdtool-interface-script/
 - Contains the code to setup and monitor an interface by graphing the data produced by ifconfig using rrdtool and displaying the results on a html page.
 
-### snippets/
-- Contains some possibly useful scripts for various languages
-
 ### usefuldb-gem/
 - Removed, and now stored in its own repository: https://github.com/davidkirwan/usefuldb-gem
 
