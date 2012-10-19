@@ -7,7 +7,7 @@ but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
 or FITNESS FOR A PARTICULAR PURPOSE.
 
     .
-    |-- apps
+    |-- apps/
     |   |-- 4chan-crawler
     |   |-- bash-search-script
     |   |-- directory2html
@@ -15,11 +15,11 @@ or FITNESS FOR A PARTICULAR PURPOSE.
     |   |-- mongodb-backup-script
     |   |-- README
     |   |-- rrdtool-interface-script
-    |   |-- snippets
     |   |-- usefuldb-gem
     |   `-- website
-    |-- docs
+    |-- docs/
     |   |-- bitbucket-autoauthenticate-netrc
     |   |-- linux-link-bonding
     |   `-- README
+    |-- snippets/
     `-- README
