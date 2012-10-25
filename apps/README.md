@@ -9,6 +9,9 @@
 ### directory2html/
 - Contains a ruby script which creates html files containing the directory structure of a filesystem.
 
+### git-me-a-changelog/
+- Contains a ruby script to generate a CHANGELOG from a git repository between two tags.
+
 ### house-cleaning/
 - Contains a rake script for performing house cleaning functions on a directory, such as incrementally naming all files, and deleting all duplicate files from the directory
 

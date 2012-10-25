@@ -11,6 +11,7 @@ or FITNESS FOR A PARTICULAR PURPOSE.
     |   |-- 4chan-crawler
     |   |-- bash-search-script
     |   |-- directory2html
+    |   |-- git-me-a-changelog
     |   |-- house-cleaning
     |   |-- mongodb-backup-script
     |   |-- README
