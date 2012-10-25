@@ -52,7 +52,7 @@ def output_summary_report(res)
   end
 end
 
-Dir.chdir($1 || '.')
+Dir.chdir(ARGV[0] || '.')
 g = Gitalyzer.new
 res = g.log_to_hash
 output_summary_report(res)
