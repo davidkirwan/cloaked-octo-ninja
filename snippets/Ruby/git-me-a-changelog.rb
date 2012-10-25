@@ -5,7 +5,6 @@
 # A simple system to generate changelogs between one tag and another.
 #
 # sample usage ./git-me-a-changelog.rb -p ~/Files/Git/Samplerepo v0.0.6 v0.0.10
-#
 ##############################################################################################
 
 # Require statements
