@@ -1,11 +1,8 @@
 #!/usr/bin/env ruby
 ##############################################################################################
-# Forked from Simple Git Analyzer by Tobin Harris (tobin@tobinharris.com)
-# Original Codebase can be found here: https://gist.github.com/396634
-##############################################################################################
-# Modified by David Kirwan
+# Written by David Kirwan
 # http:/github.com/davidkirwan
-# Reimagined as a system to generate changelogs between one tag and another.
+# A simple system to generate changelogs between one tag and another.
 #
 # sample usage ./git-me-a-changelog.rb -p ~/Files/Git/Samplerepo v0.0.6 v0.0.10
 #
