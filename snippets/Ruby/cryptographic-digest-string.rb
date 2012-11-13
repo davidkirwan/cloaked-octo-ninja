@@ -8,9 +8,25 @@
 require 'rubygems'
 require 'digest'
 
+#!/usr/bin/env ruby
+require 'digest'
+
 password = "A user's password"
-hash = Digest::SHA1.hexdigest(password)
+hash = Digest::SHA1.base64digest(password)
+puts hash.size
 puts hash
 
-# This will produce the hash
-# 62018390552aaba3d344e3b43bfa14e49e535dfc
+password = "A user's password"
+hash = Digest::MD5.hexdigest(password)
+puts hash.size
+puts hash
+
+password = "A user's password"
+hash = Digest::SHA1.hexdigest(password)
+puts hash.size
+puts hash
+
+password = "A user's password"
+hash = Digest::SHA2.hexdigest(password)
+puts hash.size
+puts hash
