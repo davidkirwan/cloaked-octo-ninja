@@ -54,7 +54,7 @@ class GitMeAChangelog
     puts "Tag Commit Hashes:\n#{tag1}: #{@tag1}#{tag2}: #{@tag2}\n\n"
     
     @res.each do |i|
-      puts i[:subject]
+      unless i[:subject].include?("SKIP") then puts i[:subject]; end
     end
   end
 
