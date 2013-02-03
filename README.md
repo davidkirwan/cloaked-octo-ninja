@@ -6,6 +6,8 @@ All code in the repository is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
 or FITNESS FOR A PARTICULAR PURPOSE.
 
+For LICENCE information see COPYING file in the repository root directory.
+
     .
     |-- apps/
     |   |-- 4chan-crawler
