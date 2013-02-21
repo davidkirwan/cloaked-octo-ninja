@@ -5,6 +5,7 @@
 ### => A simple system to generate changelogs between one tag and another.
 #
 # sample usage ./git-me-a-changelog.rb -p ~/Files/Git/Samplerepo v0.0.6 v0.0.10
+# sample usage ./git-me-a-changelog.rb -p ~/Files/Git/Samplerepo v0.0.6 HEAD
 #
 ### => Licence      Released under the creative commons attribution-sharealike 3.0 unported (cc by-sa 3.0) licence.
 #                   for more information see: http://creativecommons.org/licenses/by-sa/3.0/
