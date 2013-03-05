@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Simple jQuery Animation Example</title>
+
+  	<script type="text/javascript" src="jquery-1.9.1.min.js"></script>
+  	<script>
+  	  $(document).ready(function(){
+  	  	$('#testclick').click(function(){
+  	  		$('#testdiv').animate({
+  	  			left:'0px',
+  	  			top:'0px'
+  	  		})
+  	  		$('#testdiv').slideToggle(200);
+  	  		$('#testdiv').animate({
+  	  			left:'150px',
+  	  			top:'150px'
+  	  		})
+  	  	});
+  	  	
+  	  });
+  	</script>
+  </head>
+
+  <body>
+  	<p id="testclick">Click me!</p>
+  	
+  	<div style="background-color: red; width:500px; height:300px;">
+	<div id="testdiv" style="position:relative; display:none; background-color:lightblue; padding: 50px; border-radius: 10px">
+		<h1>This is a sample header</h1>
+		<p>Hi there I have something in here.</p>
+	</div>
+	</div>
+
+  </body>
+</html>
+
