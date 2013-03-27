@@ -18,7 +18,7 @@ For LICENCE information see COPYING file in the repository root directory.
     |   |-- mongodb-backup-script
     |   |-- README
     |   |-- rrdtool-interface-script
-    |   |-- ruby-rss-reader
+    |   |-- ruby-rss-aggregator
     |   |-- usefuldb-gem
     |   `-- website
     |-- docs/
