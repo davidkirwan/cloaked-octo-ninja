@@ -1,0 +1,5 @@
+source "http://rubygems.org"
+
+gem "feed-normalizer"
+gem "sinatra"
+gem "thin"

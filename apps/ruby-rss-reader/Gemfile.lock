@@ -1,0 +1,30 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    daemons (1.1.9)
+    eventmachine (1.0.3)
+    feed-normalizer (1.5.2)
+      hpricot (>= 0.6)
+      simple-rss (>= 1.1)
+    hpricot (0.8.6)
+    rack (1.5.2)
+    rack-protection (1.5.0)
+      rack
+    simple-rss (1.2.3)
+    sinatra (1.4.2)
+      rack (~> 1.5, >= 1.5.2)
+      rack-protection (~> 1.4)
+      tilt (~> 1.3, >= 1.3.4)
+    thin (1.5.1)
+      daemons (>= 1.0.9)
+      eventmachine (>= 0.12.6)
+      rack (>= 1.0.0)
+    tilt (1.3.6)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  feed-normalizer
+  sinatra
+  thin
