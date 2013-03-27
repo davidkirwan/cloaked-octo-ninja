@@ -16,4 +16,4 @@ To deal with dependencies, I've used the Ruby _bundler_ gem. Run the following:
     bundle install
 
 ## Launching the System
-foreman start -p <port-number>
+    foreman start -p port-number
