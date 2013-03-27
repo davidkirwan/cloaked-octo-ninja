@@ -1,5 +1,6 @@
 source "http://rubygems.org"
 
+gem "foreman"
 gem "feed-normalizer"
 gem "sinatra"
 gem "thin"
