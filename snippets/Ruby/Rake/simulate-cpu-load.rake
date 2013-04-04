@@ -39,7 +39,7 @@ task :menu do
 @log.debug "Printing Welcome"
 
 welcome = <<-WELCOME
-rake simulate:cpuload # Create the dummy zipfile
+rake simulate:cpuload # Simulates a CPU load on a system
 WELCOME
   
   puts welcome
