@@ -12,6 +12,10 @@ hashOne["test"] = 5
 
 puts hashOne["test"]
 
+hashOne[:testtwo] = 6
+
+puts hashOne[:testtwo]
+
 
 # Hash literal
 testHash = {
