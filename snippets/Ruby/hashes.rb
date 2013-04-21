@@ -9,9 +9,10 @@
 hashOne = Hash.new
 
 hashOne["test"] = 5
-
 puts hashOne["test"]
 
+hashOne[:testtwo] = 5
+puts hashOne[testtwo]
 
 # Hash literal
 testHash = {
