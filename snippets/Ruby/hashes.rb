@@ -28,7 +28,7 @@ puts test1[5]
 
 # print out the inspected contents of the hash
 puts test1.inspect
-
+# {1=>2, 6=>65.3, "three"=>54.3}
 
 #####################################################################################
 
@@ -71,7 +71,7 @@ puts test3[2].inspect
 # b
 
 puts "You can't print out a nil value, so nothing appears here: =>#{test3[3]}<="
-# 
+# You can't print out a nil value, so nothing appears here: =><=
 
 # Inspect converts the nil to a string before printing it out
 puts test3[3].inspect
