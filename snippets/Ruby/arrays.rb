@@ -1,5 +1,5 @@
 ####################################################################################################
-# @author 	David Kirwan <dkirwan@tssg.org>
+# @author 	David Kirwan https://github.com/davidkirwan/
 # @description 	Script showing the basics of working with Ruby Arrays
 #
 # @date 	08-06-2013

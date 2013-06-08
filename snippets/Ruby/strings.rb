@@ -1,5 +1,5 @@
 ####################################################################################################
-# @author   David Kirwan <dkirwan@tssg.org>
+# @author   David Kirwan https://github.com/davidkirwan/
 # @description  Script for examining basics of Ruby Hash's
 #
 # @date   08-06-2013
