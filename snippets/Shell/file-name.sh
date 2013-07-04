@@ -1,11 +1,9 @@
 #!/bin/bash
 ##############################################################
+# @Author David Kirwan https://github.com/davidkirwan
+# Bash script to find the name of a file from a file path
 #
-# @Author David Kirwan <dkirwan@tssg.org>
-# @Description Script to show how to work with filenames, and
-#              extensions in a shell script.
-#
-# @Date 20th February 2012
+# @Date 2013-07-04
 ##############################################################
 
 output="/path/to/test/something.txt"
@@ -26,6 +24,3 @@ echo "This is the file extension: "$extension
 filename=${filename%.*}
 
 echo "This should just be the file name itself: " $filename
-
-##################################
-

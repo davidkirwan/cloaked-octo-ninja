@@ -1,12 +1,10 @@
 #!/bin/bash
 ##############################################################
+# @Author David Kirwan https://github.com/davidkirwan
+# Bash script to remove trailing / character which might be passed
+# in a file path.
 #
-# @Author David Kirwan <dkirwan@tssg.org>
-# @Description simple bash script to show how it's possible
-# to delete a tailing "/" from a string. Can come in handy
-# in your scripts.
-#
-# @Date 8th February 2012
+# @Date 2013-07-04
 ##############################################################
 
 output="test/"
