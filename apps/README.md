@@ -1,7 +1,7 @@
 ## apps README
 
 ### 4chan-crawler/ 
-- Contains the code for a simple Ruby web-crawling script for downloading images in threads discovered through search term
+- Contains the code for a simple Ruby web-crawling script for downloading images in threads discovered through search term (4chan has an API now so irrevelant!)
 
 ### bash-search-script/
 - Contains the code for a simple bash "useful url and command database" search script.
@@ -23,9 +23,3 @@
 
 ### ruby-rss-aggregator
 - Contains the code for a Sinatra micro web app RSS aggregator
-
-### usefuldb-gem/
-- Removed, and now stored in its own repository: https://github.com/davidkirwan/usefuldb-gem
-
-### website/
-- Contains the code powering the www.dkirwan.ie website.
