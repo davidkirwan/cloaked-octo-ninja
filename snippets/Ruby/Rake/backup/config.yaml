@@ -1,0 +1,5 @@
+path: /path/to/backup
+output: /path/to/output
+archive: zip
+encrypt: true
+loglevel: 0

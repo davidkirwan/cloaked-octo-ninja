@@ -1,0 +1,76 @@
+####################################################################################################
+# @author       David Kirwan https://github.com/davidkirwan
+# @description  Rakefile
+#
+# @date         2013-07-12
+####################################################################################################
+# Imports
+require 'logger'
+require File.dirname(__FILE__) + "/../lib/common.rb"
+
+# Include lib/common/tasks
+include Common::Tasks
+
+# Setup Fields
+begin
+  @log = Logger.new(STDOUT)
+  @log.level = Logger::INFO
+  @data = nil
+  now = DateTime.now
+  @date = now.year.to_s + "-" + "%02d" % now.month + "-" + "%02d" % now.day
+rescue Exception => e
+  raise e
+end
+
+# The default task is print the welcome message
+task :default => 'menu'
+task :menu do
+  puts welcomeMsg = <<-MSG
+Welcome Message, fill this out etc
+MSG
+end
+
+
+# Read the config.yaml configuration file into the @data Hash
+task :read_config do
+  @data = ConfigReader.load(File.dirname(__FILE__) + "/config.yaml")
+  if @data["loglevel"].to_i == 0
+    @log.level = Logger::DEBUG
+  elsif @data["loglevel"].to_i == 1
+    @log.level = Logger::INFO
+  elsif @data["loglevel"].to_i == 2
+    @log.level = Logger::WARN
+  elsif @data["loglevel"].to_i == 3
+    @log.level = Logger::ERROR
+  elsif @data["loglevel"].to_i == 4  
+    @log.level = Logger::FATAL
+  end
+end
+
+# Create an archive from the files in the @data["path"]
+task :create_archive do
+  @log.info "Generating an archive from: #{@data["path"]}"
+  
+  if @data["archive"] == 'tar'
+    @log.info "Saving archive to #{@data["output"]}/#{@date}.tar.gz"
+  else
+    @log.info "Saving archive to #{@data["output"]}/#{@date}.zip"
+  end
+  
+  @log.debug "Archive generation complete"
+end
+
+
+namespace :create do
+  
+  desc "Create the backup"
+  task :backup => [:read_config, :create_archive] do
+    @log.info "Generating the backup"
+    
+    @log.debug "Backup generation complete"
+  end
+  
+end
+
+
+
