@@ -54,21 +54,20 @@ task :create_archive do
   @log.debug "Generating an archive from: #{@data["path"]}"
   
   backupPath = @data["path"]
-  outputPath = @data["output"]
   tempPath = @data["script"]
 
   argline = ""
 
   if @data["archive"] == 'tar' then 
-    outputFilename = "#{tempPath}/#{@date}.tar.gz"
-    @log.debug "Creating archive #{outputFilename}"
+    tmpFilename = "#{tempPath}/#{@date}.tar.gz"
+    @log.debug "Creating archive #{tmpFilename}"
 
-    argline = "tar -zcf #{outputFilename} #{backupPath}"
+    argline = "tar -zcf #{tmpFilename} #{backupPath}"
   else 
-    outputFilename = "#{tempPath}/#{@date}.zip"
-    @log.debug "Creating archive #{outputFilename}"
+    tmpFilename = "#{tempPath}/#{@date}.zip"
+    @log.debug "Creating archive #{tmpFilename}"
 
-    argline = "zip #{outputFilename} #{backupPath}"
+    argline = "zip #{tmpFilename} #{backupPath}"
   end
 
   sh "#{argline}" do |ok, status|
@@ -79,12 +78,19 @@ task :create_archive do
 end
 
 
+task :encrypt_archive do
+  @log.debug "Encrypting the archive"
+
+
+
+  @log.debug "Encryption completed"
+end
+
+
 namespace :create do
   
   desc "Create the encrypted backup"
-  task :backup => [:read_config, :create_archive] do
-    @log.debug "Generating the backup"
-    
+  task :backup => [:read_config, :create_archive, :encrypt_archive] do    
     @log.debug "Backup generation complete"
   end
   
