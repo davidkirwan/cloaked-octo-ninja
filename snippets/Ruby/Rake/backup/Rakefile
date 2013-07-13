@@ -6,18 +6,18 @@
 ####################################################################################################
 # Imports
 require 'logger'
+require 'fileutils'
 require File.dirname(__FILE__) + "/../lib/common.rb"
 
 # Include lib/common/tasks
 include Common::Tasks
 
-# Setup Fields
+# Setup variables
 begin
   @log = Logger.new(STDOUT)
   @log.level = Logger::INFO
   @data = nil
-  now = DateTime.now
-  @date = now.year.to_s + "-" + "%02d" % now.month + "-" + "%02d" % now.day
+  @date = DateString.now # Common::Tasks::DateString#now
 rescue Exception => e
   raise e
 end
@@ -26,7 +26,7 @@ end
 task :default => 'menu'
 task :menu do
   puts welcomeMsg = <<-MSG
-Welcome Message, fill this out etc
+rake create:backup  # Create the encrypted backup
 MSG
 end
 
@@ -34,6 +34,8 @@ end
 # Read the config.yaml configuration file into the @data Hash
 task :read_config do
   @data = ConfigReader.load(File.dirname(__FILE__) + "/config.yaml")
+  @data["script"] = File.expand_path(File.dirname(__FILE__))
+
   if @data["loglevel"].to_i == 0
     @log.level = Logger::DEBUG
   elsif @data["loglevel"].to_i == 1
@@ -49,12 +51,28 @@ end
 
 # Create an archive from the files in the @data["path"]
 task :create_archive do
-  @log.info "Generating an archive from: #{@data["path"]}"
+  @log.debug "Generating an archive from: #{@data["path"]}"
   
-  if @data["archive"] == 'tar'
-    @log.info "Saving archive to #{@data["output"]}/#{@date}.tar.gz"
-  else
-    @log.info "Saving archive to #{@data["output"]}/#{@date}.zip"
+  backupPath = @data["path"]
+  outputPath = @data["output"]
+  tempPath = @data["script"]
+
+  argline = ""
+
+  if @data["archive"] == 'tar' then 
+    outputFilename = "#{tempPath}/#{@date}.tar.gz"
+    @log.debug "Creating archive #{outputFilename}"
+
+    argline = "tar -zcf #{outputFilename} #{backupPath}"
+  else 
+    outputFilename = "#{tempPath}/#{@date}.zip"
+    @log.debug "Creating archive #{outputFilename}"
+
+    argline = "zip #{outputFilename} #{backupPath}"
+  end
+
+  sh "#{argline}" do |ok, status|
+    ok or fail "Command failed with status (#{status.exitstatus})"
   end
   
   @log.debug "Archive generation complete"
@@ -63,9 +81,9 @@ end
 
 namespace :create do
   
-  desc "Create the backup"
+  desc "Create the encrypted backup"
   task :backup => [:read_config, :create_archive] do
-    @log.info "Generating the backup"
+    @log.debug "Generating the backup"
     
     @log.debug "Backup generation complete"
   end

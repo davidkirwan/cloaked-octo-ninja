@@ -1,5 +1,5 @@
-path: /path/to/backup
-output: /path/to/output
-archive: zip
+path: c:/Users/Mamolian/Git/github/cloaked-octo-ninja/snippets/Ruby/Rake/lib
+output: c:/Users/Mamolian/Git/github/cloaked-octo-ninja/snippets/Ruby/Rake/backup/tmp
+archive: tar
 encrypt: true
 loglevel: 0
