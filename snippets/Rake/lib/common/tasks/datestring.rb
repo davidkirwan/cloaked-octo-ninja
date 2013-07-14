@@ -11,7 +11,7 @@ module Common
   module Tasks
 
 
-  	##
+    ##
     # Common::Tasks::DateString#now Returns a String with todays date in the form YYYY-MM-DD
     #
     # * *Args* :
@@ -21,14 +21,12 @@ module Common
     # * *Raises* :
     #           
     #
-  	class DateString
-
-  	  def self.now
-  	  	now = DateTime.now
-  		return now.year.to_s + "-" + "%02d" % now.month + "-" + "%02d" % now.day
-  	  end
-
-  	end # End of the DateString class
+    class DateString
+      def self.now
+  	    now = DateTime.now
+        return now.year.to_s + "-" + "%02d" % now.month + "-" + "%02d" % now.day
+      end
+    end # End of the DateString class
 
 
   end
