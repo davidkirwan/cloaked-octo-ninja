@@ -89,6 +89,9 @@ task :encrypt_archive do
         ok or fail "Command failed with status (#{status.exitstatus})"
       end
 
+      FileUtils.rm(@data["tmpFilename"])
+      FileUtils.mv(@data["tmpFilename"] + ".gpg", @data["output"])
+
     rescue Exception => e
       raise e
     end
@@ -102,7 +105,7 @@ namespace :create do
   
   desc "Create the encrypted backup"
   task :backup => [:read_config, :create_archive, :encrypt_archive] do    
-    @log.debug "Backup generation complete"
+    @log.debug "Backup complete"
   end
   
 end
