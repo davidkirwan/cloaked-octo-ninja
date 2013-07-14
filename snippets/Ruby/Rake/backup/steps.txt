@@ -1,4 +1,0 @@
-read config
-tar and gzip target folder
-encrypt the tar.gz file to recipient 
-copy to backup

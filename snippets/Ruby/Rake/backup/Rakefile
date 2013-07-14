@@ -59,15 +59,15 @@ task :create_archive do
   argline = ""
 
   if @data["archive"] == 'tar' then 
-    tmpFilename = "#{tempPath}/#{@date}.tar.gz"
-    @log.debug "Creating archive #{tmpFilename}"
+    @data["tmpFilename"] = "#{tempPath}/#{@date}.tar.gz"
+    @log.debug "Creating archive #{@data["tmpFilename"]}"
 
-    argline = "tar -zcf #{tmpFilename} #{backupPath}"
+    argline = "tar -zcf #{@data["tmpFilename"]} #{backupPath}"
   else 
-    tmpFilename = "#{tempPath}/#{@date}.zip"
-    @log.debug "Creating archive #{tmpFilename}"
+    @data["tmpFilename"] = "#{tempPath}/#{@date}.zip"
+    @log.debug "Creating archive #{@data["tmpFilename"]}"
 
-    argline = "zip #{tmpFilename} #{backupPath}"
+    argline = "zip #{@data["tmpFilename"]} #{backupPath}"
   end
 
   sh "#{argline}" do |ok, status|
@@ -79,11 +79,22 @@ end
 
 
 task :encrypt_archive do
-  @log.debug "Encrypting the archive"
+  if @data["encrypt"]
+    @log.debug "Encrypting the archive"
 
+    begin 
+      argline = "gpg -e -r #{@data["recipient"]} #{@data["tmpFilename"]}"
 
+      sh "#{argline}" do |ok, status|
+        ok or fail "Command failed with status (#{status.exitstatus})"
+      end
 
-  @log.debug "Encryption completed"
+    rescue Exception => e
+      raise e
+    end
+
+    @log.debug "Encryption completed"
+  end
 end
 
 
