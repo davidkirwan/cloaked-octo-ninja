@@ -8,7 +8,7 @@ all common tasks with lib/common/tasks/tasks.rb.
 This following list contains what is currently developed
 
     .
-    |-- backup
+    |-- archive-encrypt-backup
     |-- lib
     |   |-- common
     |   |   |-- tasks
