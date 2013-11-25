@@ -1,0 +1,47 @@
+set nocompatible               " be iMproved
+filetype off                   " required!
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required! 
+Bundle 'gmarik/vundle'
+
+"
+" Brief help
+"
+" " :BundleList          - list configured bundles
+" " :BundleInstall(!)    - install(update) bundles
+" " :BundleSearch(!) foo - search(or refresh cache first) for foo
+" " :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
+"
+" " see :h vundle for more details or wiki for FAQ
+" " NOTE: comments after Bundle command are not allowed..
+
+" My Bundles
+Bundle 'scrooloose/nerdtree'
+Bundle "SuperTab"
+
+" Syntax highlighting on
+syntax on
+
+" Set coloured cursor column and rows
+:hi CursorLine   cterm=NONE ctermbg=lightblue ctermfg=white guibg=darkred guifg=white
+:hi CursorColumn cterm=NONE ctermbg=lightblue ctermfg=white guibg=darkred guifg=white
+" Comment out this next line, and uncomment the one after, to enable column/row highlighing
+" to be toggled with \c
+:set cursorline! cursorcolumn!
+" :nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
+" End of cursor config
+
+" Enable mouse support
+:set mouse=a
+:set mousemodel=popup_setpos
+
+" Fix some shite with NERDTree
+autocmd vimenter * if !argc() | NERDTree | endif
+let g:NERDTreeDirArrows=0
+
+" Press F5 for spell checking hilighting. Move cursor to word then z= to open suggested fixes
+map <f5> :setlocal spell! spelllang=en_gb<CR>
