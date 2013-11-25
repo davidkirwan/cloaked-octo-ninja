@@ -1,0 +1,51 @@
+####################################################################################################
+# @author       David Kirwan https://github.com/davidkirwan
+# @description  Rakefile
+#
+# @date         2013-07-12
+####################################################################################################
+# Imports
+require 'logger'
+require 'fileutils'
+require File.dirname(__FILE__) + "/../lib/common.rb"
+
+# Include lib/common/tasks
+include Common::Tasks
+
+# Setup variables
+begin
+  @log = Logger.new(STDOUT)
+  @log.level = Logger::INFO
+  @data = nil
+  @date = DateString.now # Common::Tasks::DateString#now
+rescue Exception => e
+  raise e
+end
+
+# The default task is print the welcome message
+task :default => 'menu'
+task :menu do
+  puts welcomeMsg = <<-MSG
+rake project:sync
+rake project:deploy
+MSG
+end
+
+
+# Read the config.yaml configuration file into the @data Hash
+task :read_config do
+  @data = ConfigReader.load(File.dirname(__FILE__) + "/config.yaml")
+  @data["script"] = File.expand_path(File.dirname(__FILE__))
+
+  if @data["loglevel"].to_i == 0
+    @log.level = Logger::DEBUG
+  elsif @data["loglevel"].to_i == 1
+    @log.level = Logger::INFO
+  elsif @data["loglevel"].to_i == 2
+    @log.level = Logger::WARN
+  elsif @data["loglevel"].to_i == 3
+    @log.level = Logger::ERROR
+  elsif @data["loglevel"].to_i == 4  
+    @log.level = Logger::FATAL
+  end
+end
