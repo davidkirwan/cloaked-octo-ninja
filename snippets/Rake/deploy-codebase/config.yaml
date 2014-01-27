@@ -1,0 +1,3 @@
+git: /path/to/git/repository
+project: /path/to/project
+loglevel: 0
