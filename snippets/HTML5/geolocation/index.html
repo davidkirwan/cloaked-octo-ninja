@@ -1,0 +1,34 @@
+<!--
+  David Kirwan https://github.com/davidkirwan
+  HTML5 Geolocation Static Map Image with Open Street Maps
+-->
+
+<html>
+<head>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script>
+    $( document ).ready(function() {
+      var img = $('#map');
+      var latitude = 52.252269999999996;
+      var longitude = -7.127205999999999;
+
+      navigator.geolocation.getCurrentPosition( function(position){
+        latitude = position.coords.latitude; 
+        longitude = position.coords.longitude;
+        console.log(latitude);
+        console.log(longitude);
+        var thesrc = "http://staticmap.openstreetmap.de/staticmap.php?center=42.120376479978,-0.78125000196516&zoom=1&size=500x350" +
+        "&markers=" + latitude + "," + longitude + ",lightblue1";
+	img.attr("src", thesrc);
+      });
+    });
+
+  </script>
+
+</head>
+
+<body>
+  <div><img id="map" src="http://staticmap.openstreetmap.de/staticmap.php?center=42.120376479978,-0.78125000196516&zoom=1&size=500x350" /></div>
+</body>
+</html>
+
