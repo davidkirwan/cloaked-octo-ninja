@@ -1,3 +1,4 @@
+#!/usr/bin/env ruby
 ####################################################################################################
 # @author 	David Kirwan <dkirwan@tssg.org>
 # @description 	Script for working with the Ruby Cryptographic library
@@ -5,7 +6,6 @@
 # @date 	22-10-2012
 ####################################################################################################
 
-require 'rubygems'
 require 'digest'
 
 sha1 = Digest::SHA1.new
