@@ -6,133 +6,111 @@
 #
 ### => Author       https://github.com/davidkirwan
 #
-### => Licence      Released under the creative commons attribution-sharealike 3.0 unported (cc by-sa 3.0) licence.
-#                   for more information see: http://creativecommons.org/licenses/by-sa/3.0/
+### => Licence      GPL 2.0
 #
 #####################################################################################################################
 
 ### => STD Lib Imports
 require 'logger'
 require 'date'
+require 'benchmark'
 
 ### => Custom Imports
 scriptPath = File.expand_path(File.dirname(__FILE__))
-require scriptPath + '/classes/config-reader.rb'
-require scriptPath + '/classes/rename-files.rb'
-require scriptPath + '/classes/calculate-hashes.rb'
-require scriptPath + '/classes/move-duplicates.rb'
+require scriptPath + '/lib/config_reader.rb'
+require scriptPath + '/lib/calculate_hashes.rb'
+require scriptPath + '/lib/find_duplicates.rb'
+require scriptPath + '/lib/move_duplicates.rb'
 
 ### => Variables
 # Date, used in some of the directory/filename generation
 date = DateTime.now
-theDate = date.year.to_s() + "-" + "%02d" %  date.month.to_s() + "-" + "%02d" %  date.day.to_s()
+the_date = date.year.to_s() + "-" + "%02d" %  date.month.to_s() + "-" + "%02d" %  date.day.to_s()
 
 unless File.directory?("#{scriptPath}/logs") then FileUtils.mkdir("#{scriptPath}/logs") end
-log = Logger.new("#{scriptPath}/logs/#{theDate}.log")
+log = Logger.new("#{scriptPath}/logs/#{the_date}.log")
 # Set the logging output level
 log.level = Logger::DEBUG
 #log.level = Logger::WARN
 #log.level = Logger::INFO
 
 # Variable to store configuration settings read in from file
-data = nil
+@data = nil
 
 # Array of Hash containing path and sha values
-fileList = nil
+@file_list = nil
 
 # Number of duplicate files found
-theCount = nil
+@duplicate_count = 0
 
 ############################### => Default Task
 task :default => 'menu'
 
 task :menu do
-  puts "##################################################################\n"
-  puts "# rake --tasks => to print out a list of availible tasks for     #\n"
-  puts "#                 this Rakefile                                  #\n"
-  puts "#                                                                #\n"
-  puts "#                                                                #\n"
-  puts "#                                                                #\n"
-  puts "# rake properties=path/to/config/yaml.file <task>                #\n"
-  puts "##################################################################\n"
-  puts scriptPath
+  puts <<-eos
+rake house_clean  # Performs house cleaning tasks
+  eos
 end
 
 task :read_config do
   log.info ":read_config task executing"
-
+  log.debug Benchmark.measure {
   path = ENV["properties"] || scriptPath + '/config.yaml'
   log.debug "Reading the #{path} file."
   begin
-    data = ConfigReader.load(path, log)
+    @data = ConfigReader.load(path, log)
   rescue Exception => e
     log.fatal e.message
-    puts e.message
     exit()
   end
-  log.debug data.inspect
-
-  log.info "done"
+  log.debug @data.inspect
+  }.to_s
+  log.info ":read_config done"
 end
-
-
-task :rename_files do
-  log.debug ":rename_files executing"
-  begin
-    RenameFiles.renameFileList(data["path"], log)
-  rescue Exception => e
-    log.fatal e.message
-    puts e.message
-    exit()
-  end
-  log.debug "done"
-end
-
 
 task :calculate_hashes do
   log.debug ":calculate_hashes executing"
+  log.debug Benchmark.measure {
   begin
-    fileList = CalculateHashes.calculateHashList(data["path"], log)
-    log.debug fileList.inspect
+    @file_list = CalculateHashes.calculate_hash_list(@data["path"], log)
+    log.debug @file_list.inspect
   rescue Exception => e
     log.fatal e.message
-    puts e.message
     exit()
   end
-  log.debug "done"
+  }.to_s
+  log.debug ":calcualte_hashes done"
 end
 
+task :find_duplicates do
+  log.debug ":find_duplicates executing"
+  log.debug Benchmark.measure {
+  begin
+    @duplicate_list = FindDuplicates.deal_with_duplicates(@file_list, log)
+    log.debug @duplicate_list.inspect
+  rescue Exception => e
+    log.fatal e.message
+    exit()
+  end
+  }.to_s
+  log.debug ":find_duplicates done"
+end
 
 task :move_duplicates do
   log.debug ":move_duplicates executing"
+  log.debug Benchmark.measure {
   begin
-    theCount = MoveDuplicates.dealWithDuplicates(fileList, data["path"], log)
+    @duplicate_count = MoveDuplicates.deal_with_duplicates(@file_list, @duplicate_list, @data["path"], log)
+    log.debug "Duplicates found: #{@duplicate_count}"
   rescue Exception => e
     log.fatal e.message
-    puts e.message
     exit()
   end
-  log.debug "done"
+  }.to_s
+  log.debug ":move_duplicates done"
 end
 
-
-desc "Perform house cleaning functions on all files contained within a directory named by path variable"
-task :house_clean => [:read_config, :rename_files, :calculate_hashes, :move_duplicates] do
-  log.debug ":house_clean executing"
-  
-  log.info "All files have been renamed to match the naming scheme."
-  if theCount > 0
-    log.info "#{theCount.to_s} duplicate files were found and moved to the duplicates directory."
-  else
-    log.info "#{theCount.to_s} duplicate files were found."
-  end
-    
+desc "Perform house cleaning tasks"
+task :house_clean => [:read_config, :calculate_hashes, :find_duplicates, :move_duplicates] do
   log.debug "House keeping complete"
 end
-
-
-
-
-
-
-

@@ -6,14 +6,9 @@
 #
 ### => Author       https://github.com/davidkirwan
 #
-### => Licence      Released under the creative commons attribution-sharealike 3.0 unported (cc by-sa 3.0) licence.
-#                   for more information see: http://creativecommons.org/licenses/by-sa/3.0/
+### => Licence      GPL 2.0
 #
 #####################################################################################################################
-# Use XML markup they said
-# But compared to YAML it's truly terrible
-# I refuse to use it
-#
-# - haiku
 
-path: "testTarget/"
+#path: "testTarget/"
+path: 'testTarget/'
