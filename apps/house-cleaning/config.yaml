@@ -9,5 +9,5 @@
 ### => Licence      GPL 2.0
 #
 #####################################################################################################################
-
+# eg: path: "testTarget/" or path: "c:/path/to/folder/you/want/to/use/the/system/on/testTarget/"
 path: 'test_target'
