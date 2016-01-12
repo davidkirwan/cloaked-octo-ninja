@@ -1,8 +1,8 @@
 ####################################################################################################
 # @author   David Kirwan https://github.com/davidkirwan/
-# @description  Script for examining basics of Ruby Hash's
+# @description  Script for examining basics of Ruby Strings's
 #
-# @date   08-06-2013
+# @date   2016-01-12
 ####################################################################################################
 # STDLIB: http://ruby-doc.org/core-2.0/String.html
 
@@ -128,3 +128,16 @@ puts "Five plus five equals: #{5 + 5}"
 # We can place anything inside here, although in practice it should be kept small and concise
 puts "testing #{derp = [1, 2, 3, 4, 5].reverse; derp.reverse!; derp.slice(3)}"
 # testing 4
+
+#############################################################################################
+
+# Multiline String
+
+multiline_test = <<-str
+This is a multiline test!
+Everything between the two 'str' tags is considered part of this string.
+str
+puts multiline_test
+#This is a multiline test!
+#Everything between the two 'str' tags is considered part of this string.
+
