@@ -8,8 +8,7 @@ duplicate files in the folder, and then move them to a duplicate folder.
 https://github.com/davidkirwan
 
 ## Licence
-Released under the creative commons attribution-sharealike 3.0 unported (cc by-sa 3.0) licence.
-for more information see: http://creativecommons.org/licenses/by-sa/3.0/
+GPL 2.0
 
 ## Usage
 To execute the system, simply run the following command from the same directory as the Rakefile:
