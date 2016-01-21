@@ -12,7 +12,7 @@ connection = java.sql.DriverManager.getConnection 'jdbc:sqlite:test.db'
 begin
   statement = connection.createStatement
   begin
-    statement.executeUpdate("CREATE TABLE tablename (column_a text, column_b text)")
+    statement.executeUpdate("CREATE TABLE if not exists tablename (column_a text, column_b text)")
     statement.executeUpdate("INSERT INTO tablename VALUES ('A', 123)")
     statement.executeUpdate("INSERT INTO tablename VALUES ('B', 456)")
     statement.executeUpdate("INSERT INTO tablename VALUES ('C', 'SEVEN EIGHT NINE')")
