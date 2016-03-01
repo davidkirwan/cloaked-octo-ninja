@@ -1,4 +1,4 @@
-== Blink Sketch ==
+== ATTiny85 Blink Sketch ==
 The hello world circuit and sketch to blink an LED.
 
 === Install ===
