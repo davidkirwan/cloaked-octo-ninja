@@ -19,8 +19,7 @@ For LICENCE information see COPYING file in the repository root directory.
     |   |-- README
     |   |-- rrdtool-interface-script
     |   |-- ruby-rss-aggregator
-    |   |-- usefuldb-gem
-    |   `-- website
+    |   `-- usefuldb-gem
     |-- docs/
     |   |-- bitbucket-autoauthenticate-netrc
     |   |-- linux-link-bonding
