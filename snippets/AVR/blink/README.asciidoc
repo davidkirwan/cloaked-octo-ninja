@@ -1,0 +1,6 @@
+== ATTiny85 Blink Sketch ==
+The hello world circuit and sketch to blink an LED.
+
+=== Install ===
+In order to install do the following:
+    sudo make install
