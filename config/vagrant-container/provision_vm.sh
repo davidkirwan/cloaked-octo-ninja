@@ -22,8 +22,27 @@ sudo update-grub
 echo "Synchronising time with ntp.ubuntu.com"
 sudo ntpdate -s ntp.ubuntu.com
 
+# Docker
+# =========================================================
+echo "Install latest docker"
+
+#Install the docker apt key
+sudo curl -fsSL https://get.docker.com/gpg | sudo apt-key add -
+
+# Install docker
+sudo curl -fsSL https://get.docker.com/ | sh
+
+# Add the vagrant user to the docker group this allows
+# the use of the docker utilities without sudo
+sudo usermod -aG docker vagrant
+
+echo "To use docker without sudo, please first perform: vagrant reload"
+
 # configure the development environment
 /srv/vagrant/configure_development_environment.sh
+
+# Remove unused packages
+sudo apt-get autoremove
 
 # Update the MOTD
 sudo cat > /etc/motd << 'EOF'
