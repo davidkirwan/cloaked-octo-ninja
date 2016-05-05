@@ -2,12 +2,13 @@
 
 echo "configuring the development environment..."
 
-echo "Install Node and NPM"
-curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
-sudo apt-get install -y nodejs
+echo "building the dkirwan/base:latest container image"
+sudo docker build -t dkirwan/base:latest base/
 
-# Confirm successful installation
-echo "NodeJS Version: " `node --version`
-echo "NPM Version: " `npm --version`
+echo "building the dkirwan/nginx:latest container image"
+sudo docker build -t dkirwan/nginx:latest nginx/
+
+echo "building the dkirwan/node_app:latest container image"
+sudo docker build -t dkirwan/node_app:latest node_app
 
 exit 0
