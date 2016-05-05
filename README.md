@@ -9,20 +9,33 @@ or FITNESS FOR A PARTICULAR PURPOSE.
 For LICENCE information see COPYING file in the repository root directory.
 
     .
-    |-- apps/
-    |   |-- 4chan-crawler
-    |   |-- bash-search-script
-    |   |-- directory2html
-    |   |-- git-me-a-changelog
-    |   |-- house-cleaning
-    |   |-- mongodb-backup-script
-    |   |-- README
-    |   |-- rrdtool-interface-script
-    |   |-- ruby-rss-aggregator
-    |   `-- usefuldb-gem
-    |-- docs/
-    |   |-- bitbucket-autoauthenticate-netrc
-    |   |-- linux-link-bonding
-    |   `-- README
-    |-- snippets/
-    `-- README
+    ├── apps
+    │   ├── 4chan-crawler
+    │   ├── bash-search-script
+    │   ├── directory2html
+    │   ├── git-me-a-changelog
+    │   ├── house-cleaning
+    │   ├── mongodb-backup-script
+    │   ├── README.md
+    │   ├── rrdtool-interface-script
+    │   └── ruby-rss-aggregator
+    ├── config
+    │   └── vim
+    ├── COPYING
+    ├── docs
+    │   ├── bitbucket-autoauthenticate-netrc
+    │   ├── linux-link-bonding
+    │   └── README.md
+    ├── README.md
+    └── snippets
+        ├── AVR
+        ├── C
+        ├── CSS
+        ├── HTML5
+        ├── Java
+        ├── Javascript
+        ├── Python
+        ├── R
+        ├── Rake
+        ├── Ruby
+        └── Shell
