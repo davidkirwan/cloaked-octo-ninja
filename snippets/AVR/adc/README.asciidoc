@@ -1,0 +1,4 @@
+Padraig said this could help configure the clock timing to use the onboard ossiliator
+
+clock_prescale_set(clock_div_1); 
+F_CPU = 16000000;
