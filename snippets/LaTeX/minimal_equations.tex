@@ -1,0 +1,16 @@
+\documentclass[preview]{standalone}
+\usepackage{eqnarray, amsmath}
+\begin{document}
+% Basic minimal document to produce equations etc
+\begin{eqnarray*}
+V_t &=& 6V \\
+R_1 &=& 500 \Omega \\
+R_2 &=& 1k \Omega \\
+R_3 &=& 3k \Omega \\
+R_4 &=& 2k \Omega \\
+R_t &=& R_1 + R_2 + \big( \frac{1}{R_3} + \frac{1}{R_4} \big) \\
+R_{3,4} &=& \big( \frac{1}{R_3} + \frac{1}{R_4} \big) \\
+I_3 &=& I_t \big( \frac{ \frac{1}{R_3} }{ \frac{1}{R_3} + \frac{1}{R_4} } \big) \\
+\end{eqnarray*}
+\end{document}
+
