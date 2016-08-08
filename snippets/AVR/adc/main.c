@@ -1,4 +1,6 @@
 /**
+A basic sketch which will read the value on PB4/ADC2 and if the voltage is more than half of VCC it will light
+the LED connected to PB0.
  **/
 
 #include <avr/io.h>
