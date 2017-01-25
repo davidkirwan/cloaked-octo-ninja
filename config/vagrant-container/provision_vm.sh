@@ -11,7 +11,7 @@ DOCKER_CONFIG_FILE=/etc/default/docker
 # Install dependencies
 apt-get -y update
 echo "Installing dependencies"
-sudo apt-get -y install tree nfs-common portmap git vim curl zip unzip build-essential ntp
+sudo apt-get -y install tree nfs-common portmap git vim curl zip unzip build-essential ntp htop tmux nmap
 
 # Set up Docker CPU accounting
 sudo sed -i "s/GRUB_CMDLINE_LINUX=\"\"/GRUB_CMDLINE_LINUX=\"cgroup_enable=memory swapaccount=1\"/g" $GRUB_CONFIG_FILE
