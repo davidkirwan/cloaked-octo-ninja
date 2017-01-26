@@ -1,7 +1,7 @@
 # Nginx container
 # VERSION 0.0.1
 
-FROM dkirwan/base:latest
+FROM base:latest
 
 MAINTAINER David Kirwan <davidkirwanirl@gmail.com>
 

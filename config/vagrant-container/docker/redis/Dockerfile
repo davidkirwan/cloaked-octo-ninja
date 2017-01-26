@@ -1,6 +1,6 @@
 # Base Ubuntu Trusty 14.04 LTS image
 #FROM ubuntu:trusty
-FROM dkirwan/base:latest
+FROM base:latest
 
 # redis 2.8.13
 RUN apt-get update && apt-get install -y --no-install-recommends \

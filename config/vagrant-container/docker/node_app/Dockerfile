@@ -2,7 +2,7 @@
 # VERSION    0.0.1
 
 # Base Ubuntu Trusty 14.04 LTS image
-FROM dkirwan/base:latest
+FROM base:latest
 
 # The maintainer
 MAINTAINER David Kirwan <davidkirwanirl@gmail.com>
