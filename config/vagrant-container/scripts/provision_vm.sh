@@ -11,7 +11,7 @@ DOCKER_CONFIG_FILE=/etc/default/docker
 # Install dependencies
 apt-get -y update
 echo "Installing dependencies"
-sudo apt-get -y install tree nfs-common portmap git vim curl zip unzip build-essential ntp htop tmux nmap
+sudo apt-get -y install tree nfs-common portmap git vim curl zip unzip build-essential ntp htop tmux nmap jq
 
 # Set up Docker CPU accounting
 sudo sed -i "s/GRUB_CMDLINE_LINUX=\"\"/GRUB_CMDLINE_LINUX=\"cgroup_enable=memory swapaccount=1\"/g" $GRUB_CONFIG_FILE
@@ -39,7 +39,9 @@ sudo usermod -aG docker vagrant
 echo "To use docker without sudo, please first perform: vagrant reload"
 
 # configure the development environment
-/home/vagrant/scripts/configure_development_environment.sh
+/srv/vagrant/scripts/cleanup.sh
+/srv/vagrant/scripts/configure_development_environment.sh
+/srv/vagrant/scripts/start_containers.sh
 
 # Remove unused packages
 sudo apt-get autoremove

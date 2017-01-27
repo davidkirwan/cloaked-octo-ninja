@@ -15,6 +15,11 @@ RUN   curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash - ;\
 
 ADD nodeapp /home/node/nodeapp
 
+RUN   cd /home/node/nodeapp;\
+      npm install
+
+WORKDIR /home/node/nodeapp
+
 EXPOSE 5000
 
-CMD ["node", "/home/node/nodeapp/bin/www;"]
+CMD ["npm", "start"]
