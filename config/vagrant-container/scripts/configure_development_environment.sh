@@ -9,7 +9,7 @@ echo "building the nginx:latest container image"
 sudo docker build -t nginx:latest /home/vagrant/docker/nginx
 
 echo "building the node_app:latest container image"
-sudo docker build -t node_app:latest /home/vagrant/docker/node_app
+sudo docker build -t nodeapp:latest /home/vagrant/docker/nodeapp
 
 echo "building the redis:latest container image"
 sudo docker build -t redis:latest /home/vagrant/docker/redis

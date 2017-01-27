@@ -39,7 +39,7 @@ sudo usermod -aG docker vagrant
 echo "To use docker without sudo, please first perform: vagrant reload"
 
 # configure the development environment
-/home/vagrant/configure_development_environment.sh
+/home/vagrant/scripts/configure_development_environment.sh
 
 # Remove unused packages
 sudo apt-get autoremove

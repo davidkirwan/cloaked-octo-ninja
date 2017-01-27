@@ -11,8 +11,10 @@ MAINTAINER David Kirwan <davidkirwanirl@gmail.com>
 RUN   curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash - ;\
       sudo apt-get install -y nodejs ;\
       useradd -m -p "$1$b108a043$pKWeqlfFAmU9LbrGD.wnh." -s /bin/bash node ;\
-      mkdir -p ~node/node_app && chown node:node ~node/node_app
+      mkdir -p /home/node/nodeapp && chown node:node /home/node/nodeapp
+
+ADD nodeapp /home/node/nodeapp
 
 EXPOSE 5000
 
-CMD ["node", "~node/node_app/server.js;"]
+CMD ["node", "/home/node/nodeapp/bin/www;"]
