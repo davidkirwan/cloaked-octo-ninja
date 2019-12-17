@@ -1,0 +1,7 @@
+== Arduino Configuration ==
+
+To add the ATTiny85 to the arduino IDE add the following:
+
+-----
+https://raw.githubusercontent.com/damellis/attiny/ide-1.6.x-boards-manager/package_damellis_attiny_index.json.
+-----
