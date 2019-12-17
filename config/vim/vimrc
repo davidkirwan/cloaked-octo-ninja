@@ -9,7 +9,6 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
@@ -20,14 +19,45 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'git://git.wincent.com/command-t.git'
 " JS Beautify
 Plugin 'maksimr/vim-jsbeautify'
-" git repos on your local machine (i.e. when working on your own plugin)
-" Plugin 'file:///home/gmarik/path/to/plugin'
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Install L9 and avoid a Naming conflict if you've already installed a
 " different version somewhere else.
 Plugin 'ascenator/L9', {'name': 'newL9'}
+" Vim markdown folding zi or Zi to acivate apparently
+Plugin 'nelstrom/vim-markdown-folding'
+" Stuff for Ruby dev
+Plugin 'vim-ruby/vim-ruby'
+" Python folding
+Plugin 'tmhedberg/simpylfold'
+" Asciidoc config
+Plugin 'asciidoc/vim-asciidoc'
+
+" YAML Folding
+Plugin 'pedrohdz/vim-yaml-folds'
+
+" Fuzzy Finder
+" :Files / :FZF
+Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plugin 'junegunn/fzf.vim'
+
+" Highlight bar
+Plugin 'itchyny/lightline.vim'
+
+" Multiple Cursors
+"
+"    start: <C-n> start multicursor and add a virtual cursor + selection on the match
+"        next: <C-n> add a new virtual cursor + selection on the next match
+"        skip: <C-x> skip the next match
+"        prev: <C-p> remove current virtual cursor + selection and go back on previous match
+"    select all: <A-n> start multicursor and directly select all matches
+"
+"You can now change the virtual cursors + selection with visual mode commands. For instance: c, s, I, A work without any issues. You could also go to normal mode by pressing v and use normal commands there.
+"
+"At any time, you can press <Esc> to exit back to regular Vim.
+Plugin 'terryma/vim-multiple-cursors'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -70,10 +100,17 @@ map <f5> :setlocal spell! spelllang=en_gb<CR>
 :set ruler
 :set shiftwidth=2
 :set laststatus=2
+:set list
+:set listchars=tab:>-
 
+" Folding configuration
+:setlocal foldmethod=syntax
+inoremap <F9> <C-O>za
+nnoremap <F9> za
+onoremap <F9> <C-C>za
+vnoremap <F9> zf
 
 " Statusline
-
 let g:currentmode={'n':'N ', 'no':'N·Operator Pending ', 'v':'V ', 'V':'V·Line ', '^V':'V·Block ', 's':'Select ', 'S':'S·Line ', '^S':'S·Block ', 'i':'I ', 'R':'R ', 'Rv':'V·Replace ', 'c':'Command ', 'cv':'Vim Ex ', 'ce':'Ex ', 'r':'Prompt ', 'rm':'More ', 'r?':'Confirm ', '!':'Shell ', 't':'Terminal '}
 
 " Automatically change the statusline color depending on mode
